@@ -13,7 +13,23 @@ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",
  */
 (()=>{
  "use strict";
- const PLAYLISTS=[];
+ const PLAYLISTS=[
+   {
+     titulo:"Playlist 01",
+     descricao:"Minha seleção no Spotify",
+     url:"https://open.spotify.com/playlist/0qZ9SKrLbXuQqYcHZwVnT4"
+   },
+   {
+     titulo:"Playlist 02",
+     descricao:"Minha seleção no Spotify",
+     url:"https://open.spotify.com/playlist/5dl6z8fFzDX6QszGDhyQVx"
+   },
+   {
+     titulo:"Playlist 03",
+     descricao:"Minha seleção no Spotify",
+     url:"https://open.spotify.com/playlist/4Y2xOdFInYSzyJNgPhQowe"
+   }
+ ];
  const KEY="xqrens-motion";
  const run=()=>{
    const button=document.getElementById("motionSwitch");
