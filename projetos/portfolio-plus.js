@@ -15,18 +15,18 @@ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",
  "use strict";
  const PLAYLISTS=[
    {
-     titulo:"Playlist 01",
-     descricao:"Minha seleção no Spotify",
+     titulo:"Rock & Melancolia",
+     descricao:"Rock e músicas melancólicas para entrar na própria frequência.",
      url:"https://open.spotify.com/playlist/0qZ9SKrLbXuQqYcHZwVnT4"
    },
    {
-     titulo:"Playlist 02",
-     descricao:"Minha seleção no Spotify",
+     titulo:"Trabalho & Curso",
+     descricao:"Minha trilha sonora para o trabalho, o curso e os estudos de programação.",
      url:"https://open.spotify.com/playlist/5dl6z8fFzDX6QszGDhyQVx"
    },
    {
-     titulo:"Playlist 03",
-     descricao:"Minha seleção no Spotify",
+     titulo:"Escola",
+     descricao:"Músicas para acompanhar a rotina da escola.",
      url:"https://open.spotify.com/playlist/4Y2xOdFInYSzyJNgPhQowe"
    }
  ];
