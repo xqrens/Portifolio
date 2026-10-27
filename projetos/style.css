@@ -317,8 +317,6 @@ p{margin-top:0}
  .feature-grid{grid-template-columns:1fr 1fr}
  .project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
  .mood-image{height:195px}
- .inner-weather-layout{grid-template-columns:1fr}
- .inner-weather-art{max-width:540px;width:100%;margin:0 auto}
  .mente-layout{grid-template-columns:1fr}
  .mente-preview{max-width:550px;width:100%;transform:none}
  .contact-panel{grid-template-columns:1fr;gap:23px}
@@ -357,8 +355,6 @@ p{margin-top:0}
  .mood-image{height:188px}
  .mood-image:last-child{display:none}
  .mood-footer{font-size:9px;line-height:1.6}
- .inner-weather-copy h2{font-size:clamp(46px,11vw,60px)}
- .inner-weather-art{padding:18px 18px 29px}
  .mente-wrap{padding:27px 21px}
  .mente-copy h2{font-size:49px}
  .mente-preview-body{min-height:235px;padding:24px}
@@ -373,8 +369,6 @@ p{margin-top:0}
  .section-head h2{font-size:35px}
  .about-facts{grid-template-columns:1fr}
  .mood-image{height:150px}
- .inner-weather-art{padding:12px 12px 25px}
- .inner-weather-copy h2{font-size:clamp(42px,11vw,52px)}
 }
 @media(prefers-reduced-motion:reduce){
  html:not([data-motion="on"]){scroll-behavior:auto}
