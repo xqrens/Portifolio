@@ -37,7 +37,7 @@ A ideia é simples: mostrar **quem sou, meus projetos, o Mente em Flor e como en
 | **Sobre mim** | Minha apresentação, estudos no SENAI e tecnologias que estou aprendendo |
 | **Projetos** | **24 projetos:** 19 atividades de estudo e cinco miniapps interativos com JavaScript |
 | **Referências visuais** | Seis imagens do meu arquivo pessoal: mangá, arte monocromática e memes |
-| **Spotify** | Meu perfil público, uma seção musical e espaço para destacar playlists com players oficiais |
+| **Spotify** | Meu perfil público, três playlists com cards temáticos e players oficiais expansíveis |
 | **Mente em Flor** | Apresentação e link para meu site educativo sobre saúde mental |
 | **Contato** | GitHub, Instagram e canal para sugestões |
 
@@ -48,7 +48,7 @@ Os projetos têm **busca pelo nome, filtros HTML/CSS/Páginas/JavaScript e uma o
 
 O portfólio inclui a seção **Minha frequência**, com acesso ao [meu perfil público do Spotify](https://open.spotify.com/user/31ydaudx7rf6gusyu7bned2tf65i) e três cards musicais interativos, um para cada playlist. O player é oficial do Spotify, aparece em um painel que se expande suavemente ao clicar em **Ouvir aqui** e não começa a tocar automaticamente. Fechar o painel encerra o player incorporado; apenas uma playlist pode ficar aberta por vez.
 
-Para adicionar playlists reais, abra `projetos/portfolio-plus.js` e encontre `const PLAYLISTS=[...];`. Adicione ou edite os dados das playlists públicas que quero recomendar, por exemplo:
+Para adicionar playlists reais, abra `projetos/portfolio-plus.js` e encontre `const PLAYLISTS = [ ... ];`. Adicione ou edite os dados das playlists públicas que quero recomendar, por exemplo:
 
 ```js
 const PLAYLISTS = [
