@@ -399,6 +399,6 @@ p{margin-top:0}
  .inner-weather-copy h2{font-size:clamp(42px,11vw,52px)}
 }
 @media(prefers-reduced-motion:reduce){
- html{scroll-behavior:auto}
- *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+ html:not([data-motion="on"]){scroll-behavior:auto}
+ html:not([data-motion="on"]) *,html:not([data-motion="on"]) *::before,html:not([data-motion="on"]) *::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
