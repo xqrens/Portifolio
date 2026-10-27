@@ -23,10 +23,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css?v=xqrens-entrelinhas-20261022">
-<link rel="stylesheet" href="./portfolio-plus.css?v=20261027-music">
+  <link rel="stylesheet" href="./style.css?v=xqrens-20261027-no-entrelinhas">
+<link rel="stylesheet" href="./portfolio-plus.css?v=20261027-player-v2">
   <script defer src="./script.js?v=xqrens-portfolio-v3-20261018"></script>
-<script defer src="./portfolio-plus.js?v=20261027-playlists-names"></script>
+<script defer src="./portfolio-plus.js?v=20261027-player-v2"></script>
   <script>try { const motion=localStorage.getItem("xqrens-motion"); if(motion==="on"||motion==="off")document.documentElement.dataset.motion=motion; } catch(e) {}</script>
 </head>
 <body>
@@ -42,7 +42,6 @@
         <a href="#sobre">Sobre mim</a>
         <a href="#referencias">Referências</a>
 <a href="#projetos">Projetos</a>
-        <a href="#entrelinhas">Entrelinhas</a>
         <a href="#spotify">Spotify</a>
         <a href="#mente">Mente em Flor</a>
         <a href="#contato">Contato</a>
@@ -333,49 +332,22 @@
       </div>
     </div>
 
-    <section class="section inner-weather-section" id="entrelinhas" aria-labelledby="innerWeatherTitle">
-      <div class="container inner-weather-layout">
-        <div class="inner-weather-copy">
-          <span class="eyebrow">04 <span class="line"></span> O QUE NÃO CABE NO CÓDIGO</span>
-          <h2 id="innerWeatherTitle">Estavelmente <span>não bem.</span></h2>
-          <p>Tem dias em que a cabeça faz mais barulho que qualquer música. Nem sempre é fácil colocar em palavras o que eu sinto, nem explicar por que algumas coisas parecem tão complicadas.</p>
-          <p>Mas eu sou mais do que os meus dias difíceis. Sou alguém que gosta de <strong>programação, mangás, animes e música</strong>, que aprende errando e que ainda tem muita coisa para criar.</p>
-          <div class="inner-weather-note">
-            <span>REGISTRO PESSOAL / 01</span>
-            <strong>Não preciso estar bem o tempo todo para continuar sendo eu.</strong>
-            <p>Meu ritmo muda. Meus interesses continuam. E este portfólio também é um lugar para registrar quem estou me tornando.</p>
-          </div>
-          <div class="inner-weather-tags" aria-label="Coisas que fazem parte de mim">
-            <span>EM CONSTRUÇÃO</span><span>MÚSICA</span><span>MANGÁS</span><span>CÓDIGO</span>
-          </div>
-        </div>
-        <div class="inner-weather-art">
-          <figure class="inner-weather-portrait">
-            <img src="./Img/17.jpg" loading="lazy" width="736" height="1102" alt="Ilustração monocromática de mangá, entre as referências visuais de Luiz">
-            <figcaption><span>ARQUIVO PESSOAL / 004</span><strong>Um capítulo ainda sendo escrito.</strong></figcaption>
-          </figure>
-          <span class="inner-weather-corner-label" aria-hidden="true">XQRENS / NO SIGNAL ✳</span>
-        </div>
-      </div>
-    </section>
-
-
     <section class="section spotify-section" id="spotify" aria-labelledby="spotifyTitle">
       <div class="container">
         <div class="section-head">
-          <div><span class="eyebrow">05 <span class="line"></span> MUSIC / XQRENS</span><h2 id="spotifyTitle">Minha <span class="accent">frequência.</span></h2></div>
+          <div><span class="eyebrow">04 <span class="line"></span> MUSIC / XQRENS</span><h2 id="spotifyTitle">Minha <span class="accent">frequência.</span></h2></div>
           <p>As músicas que me acompanham quando estou programando, estudando ou simplesmente curtindo meu tempo.</p>
         </div>
         <div class="spotify-grid">
           <div class="spotify-hero">
             <div class="spotify-meta"><span>● SOUND ARCHIVE</span><span>2026 / XQRENS</span></div>
             <div class="spotify-disc" aria-hidden="true"><div class="spotify-disc-center">XQ<br><small>RENS</small></div></div>
-            <div class="spotify-hero-copy"><span class="spotify-kicker">PLAYLISTS / REFERÊNCIAS</span><h3>Trilhas de<br><em>outro mundo.</em></h3><p>Esse é meu arquivo musical. Aqui vão aparecer as playlists que eu selecionar para recomendar.</p><a class="btn primary" href="https://open.spotify.com/user/31ydaudx7rf6gusyu7bned2tf65i" target="_blank" rel="noopener noreferrer">Conhecer meu Spotify ↗</a></div>
+            <div class="spotify-hero-copy"><span class="spotify-kicker">PLAYLISTS / REFERÊNCIAS</span><h3>Trilhas de<br><em>outro mundo.</em></h3><p>Rock, dias de curso e músicas pra levar pra escola. Três playlists, três frequências diferentes. Escolha uma e abra o player sem sair daqui.</p><a class="btn primary" href="https://open.spotify.com/user/31ydaudx7rf6gusyu7bned2tf65i" target="_blank" rel="noopener noreferrer">Conhecer meu Spotify ↗</a></div>
           </div>
           <div class="spotify-shelf">
-            <div class="spotify-shelf-head"><div><span class="spotify-kicker">RECOMENDAÇÕES</span><h3>Minhas playlists</h3></div><span class="spotify-counter" id="spotifyCounter">EM BREVE</span></div>
+            <div class="spotify-shelf-head"><div><span class="spotify-kicker">ESCOLHA SUA FREQUÊNCIA</span><h3>Minhas playlists<span class="spotify-title-dot">.</span></h3><p>Toque em <strong>Ouvir aqui</strong> para revelar o player.</p></div><span class="spotify-counter" id="spotifyCounter">03 PLAYLISTS</span></div>
             <div id="spotifyPlaylists" class="spotify-playlists"><div class="spotify-empty"><span aria-hidden="true">♫</span><strong>Um lugar para meus sons.</strong><p>Estou preparando a seleção das minhas playlists públicas. Até lá, meu Spotify está aberto para explorar.</p><a href="https://open.spotify.com/user/31ydaudx7rf6gusyu7bned2tf65i" target="_blank" rel="noopener noreferrer">Visitar meu perfil ↗</a></div></div>
-            <div class="spotify-footnote">OUVIR É OPCIONAL · SEM REPRODUÇÃO AUTOMÁTICA</div>
+            <div class="spotify-footnote"><span class="spotify-live-dot" aria-hidden="true"></span> MINHA TRILHA SONORA / SEM AUTOPLAY</div>
           </div>
         </div>
       </div>
@@ -386,7 +358,7 @@
         <div class="mente-wrap">
           <div class="mente-layout">
             <div class="mente-copy">
-              <span class="eyebrow mint">06 <span class="line"></span> PROJETO EM DESTAQUE</span>
+              <span class="eyebrow mint">05 <span class="line"></span> PROJETO EM DESTAQUE</span>
               <h2 id="menteTitle">Mente <em>em Flor.</em></h2>
               <p>Criei o Mente em Flor para falar sobre saúde mental de um jeito acolhedor. A ideia é reunir dicas práticas, espaços de reflexão, pausas e informações de onde procurar ajuda.</p>
               <p>É um trabalho educativo e pessoal, feito para conscientizar e incentivar conversas importantes. Não oferece diagnóstico nem substitui acompanhamento profissional.</p>
@@ -406,7 +378,7 @@
     <section class="section contact-section" id="contato" aria-labelledby="contactTitle">
       <div class="container contact-panel">
         <div class="contact-copy">
-          <span class="eyebrow">07 <span class="line"></span> ENTRE EM CONTATO</span>
+          <span class="eyebrow">06 <span class="line"></span> ENTRE EM CONTATO</span>
           <h2 id="contactTitle">Vamos trocar <span class="accent">uma ideia?</span></h2>
           <p>Quer ver meus projetos, mandar um feedback ou acompanhar o que estou estudando? Estes são meus links principais.</p>
           <a class="btn primary" href="https://github.com/xqrens/Portifolio/issues/new/choose" target="_blank" rel="noopener noreferrer">Deixar uma sugestão ↗</a>
