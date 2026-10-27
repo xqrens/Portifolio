@@ -37,11 +37,33 @@ A ideia é simples: mostrar **quem sou, meus projetos, o Mente em Flor e como en
 | **Sobre mim** | Minha apresentação, estudos no SENAI e tecnologias que estou aprendendo |
 | **Projetos** | **24 projetos:** 19 atividades de estudo e cinco miniapps interativos com JavaScript |
 | **Referências visuais** | Seis imagens do meu arquivo pessoal: mangá, arte monocromática e memes |
+| **Spotify** | Meu perfil público, uma seção musical e espaço para destacar playlists com players oficiais |
 | **Entrelinhas** | Uma seção mais pessoal: “Estavelmente não bem.”, música, leituras e reflexões |
 | **Mente em Flor** | Apresentação e link para meu site educativo sobre saúde mental |
 | **Contato** | GitHub, Instagram e canal para sugestões |
 
 Os projetos têm **busca pelo nome, filtros HTML/CSS/Páginas/JavaScript e uma opção para expandir a lista completa**. Não é necessário instalar bibliotecas nem criar uma conta.
+
+
+## 🎧 Spotify e controle de animações
+
+O portfólio inclui a seção **Minha frequência**, com acesso ao [meu perfil público do Spotify](https://open.spotify.com/user/31ydaudx7rf6gusyu7bned2tf65i) e um espaço para destacar **minhas próprias playlists**. O player é oficial do Spotify, só aparece ao clicar em **Ouvir aqui** e não começa a tocar automaticamente.
+
+Para adicionar playlists reais, abra `projetos/portfolio-plus.js` e encontre `const PLAYLISTS=[];`. Substitua pelos dados das playlists públicas que quero recomendar, por exemplo:
+
+```js
+const PLAYLISTS = [
+  {
+    titulo: "Nome da playlist",
+    descricao: "Uma descrição curta para quem vai escutar",
+    url: "https://open.spotify.com/playlist/COLE_O_ID_REAL_AQUI"
+  }
+];
+```
+
+**Importante:** o exemplo acima é apenas um modelo. Enquanto eu não cadastrar URLs reais, o portfólio mostra o link do meu perfil, sem inventar playlists. Não é necessário token, login ou senha para incorporar uma playlist pública com o player do Spotify.
+
+O botão flutuante **Efeitos ON/OFF** alterna as animações do próprio site e guarda minha escolha no navegador. O modo inicial respeita a preferência de movimento reduzido do dispositivo; ao mudar a opção, o site recarrega para reiniciar as animações. Os efeitos de entrada existentes, o disco de vinil animado e o brilho que segue o cursor usam CSS e JavaScript puro.
 
 ## ✳ Cinco miniapps JavaScript novos
 
