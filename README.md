@@ -61,7 +61,7 @@ const PLAYLISTS = [
 ];
 ```
 
-**Importante:** o exemplo acima é apenas um modelo. Enquanto eu não cadastrar URLs reais, o portfólio mostra o link do meu perfil, sem inventar playlists. Não é necessário token, login ou senha para incorporar uma playlist pública com o player do Spotify.
+**Playlists reais adicionadas:** o portfólio já apresenta três playlists públicas compartilhadas pelo autor, usando seus URLs no `projetos/portfolio-plus.js`. Os títulos aparecem temporariamente como **Playlist 01, 02 e 03** até serem informados os nomes originais. O exemplo de código acima é apenas um modelo para futuras alterações. Não é necessário token, login ou senha para incorporar uma playlist pública com o player do Spotify.
 
 O botão flutuante **Efeitos ON/OFF** alterna as animações do próprio site e guarda minha escolha no navegador. O modo inicial respeita a preferência de movimento reduzido do dispositivo; ao mudar a opção, o site recarrega para reiniciar as animações. Os efeitos de entrada existentes, o disco de vinil animado e o brilho que segue o cursor usam CSS e JavaScript puro.
 
