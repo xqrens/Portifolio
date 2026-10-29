@@ -152,3 +152,46 @@ tbody tr:last-child td { border-bottom: 0; }
  html { scroll-behavior: auto; }
  *,*::before,*::after { scroll-behavior: auto!important; animation-duration: .01ms!important; animation-iteration-count: 1!important; transition-duration: .01ms!important; }
 }
+
+/* Individual project identities. Shared structure, distinct accents. */
+body[data-theme="mint"] { --accent:#8ee7c8; --accent-soft:rgb(142 231 200 / 12%); }
+body[data-theme="blue"] { --accent:#98c7ff; --accent-soft:rgb(152 199 255 / 12%); }
+body[data-theme="amber"] { --accent:#ffd39a; --accent-soft:rgb(255 211 154 / 11%); }
+body[data-theme="red"] { --accent:#ffa5b0; --accent-soft:rgb(255 165 176 / 12%); }
+.section-gap { margin-block-start: clamp(24px,4vw,38px); }
+.sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; }
+.spot-board .spot-mark { transform:translate(-50%,-50%); }
+.spot-mark--1 { left:8.667%; top:5.333cqw; }
+.spot-mark--2 { left:26.667%; top:16cqw; }
+.spot-mark--3 { left:51.333%; top:25.333cqw; }
+.spot-mark--4 { left:35.333%; top:30cqw; }
+.spot-mark--5 { left:28.267%; top:6cqw; }
+.spot-mark--6 { left:67.333%; top:6cqw; }
+.spot-mark--7 { left:79.6%; top:20.267cqw; }
+.spot-mark--8 { left:86.533%; top:14.267cqw; }
+.spot-mark--9 { left:88%; top:41.333cqw; }
+/* Background images are intentionally kept as original exercise assets. */
+.bg-repeat { background-image:url("../projeto_fundo/styles/aura1.png"); background-repeat:repeat; background-size:45px; }
+.bg-no-repeat { background-image:url("../projeto_fundo/styles/aura2.png"); background-repeat:no-repeat; background-size:90px; background-position:top left; }
+.bg-center { background-image:url("../projeto_fundo/styles/aura3.png"); background-repeat:no-repeat; background-size:90px; background-position:center; }
+.bg-cover { background-image:url("../projeto_fundo/styles/aura4.png"); background-repeat:no-repeat; background-size:cover; background-position:center; }
+.bg-bottom { background-image:url("../projeto_fundo/styles/aura5.png"); background-repeat:no-repeat; background-size:90px; background-position:center bottom; }
+.product-feature { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:center; gap:24px; }
+.product-feature h2 { font-size:clamp(2rem,5vw,4rem); }
+.product-feature figure { margin:0; }
+.product-feature img { width:100%; max-height:350px; object-fit:contain; }
+.index-link { display:block; text-decoration:none; }
+.index-link:hover .back-link { color:var(--accent); }
+.selector-preview { background:linear-gradient(135deg,var(--accent-soft),transparent),radial-gradient(circle at 68% 50%,var(--accent) 0 13%,transparent 14%); }
+.selector-preview::after { content:""; display:block; width:36%; height:16px; margin:75px 18%; border-radius:20px; background:var(--accent); opacity:.55; }
+.brand-hero > img { max-height:390px; width:100%; object-fit:cover; }
+.store-product { gap:9px; }
+.store-product .pill { align-self:flex-start; }
+.store-product h2 { margin:5px 0; }
+.store-product .price { margin-bottom:2px; }
+.demo-cell:focus-within { border-color:var(--accent); }
+.demo-button:active { transform:translateY(1px) scale(.98); }
+@media(max-width:800px) {
+ .product-feature { grid-template-columns:1fr; }
+ .spot-compare figure { max-width:750px; }
+}
