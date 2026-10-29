@@ -89,3 +89,34 @@ a{color:inherit;text-decoration:none}
 @media(max-width:760px){.palette-grid{grid-template-columns:repeat(2,1fr)}.swatch{min-height:260px}.swatch-color{min-height:160px}.timer-layout{grid-template-columns:1fr}.notes-list{grid-template-columns:1fr}}
 @media(max-width:460px){.lab-nav a:nth-child(2){display:none}.palette-grid{grid-template-columns:1fr 1fr}.swatch-info{padding:11px 8px}.memory-card{font-size:32px}.lab-content{padding:22px 15px}.lab-hero{padding-top:60px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* Refactored component utilities / keyboard and small-screen support */
+.skip-link { position:fixed; z-index:50; top:-90px; left:16px; border-radius:9px; padding:11px 16px; background:var(--accent); color:#0b1020; font-weight:700; }
+.skip-link:focus { top:12px; }
+.context-note { margin-top:24px; }
+.info-row { justify-content:space-between; margin-bottom:15px; }
+body[data-app="palette"] { --accent:#b9afff; }
+body[data-app="timer"] { --accent:#a9d9ff; }
+body[data-app="quiz"] { --accent:#d4b9ff; }
+body[data-app="memory"] { --accent:#a9e0ca; }
+body[data-app="notes"] { --accent:#f7c5b1; }
+.swatch, .note, .panel { min-width:0; }
+.swatch-actions button, .timer-options button, .quiz-answers button, .memory-card { transition:background-color .2s ease,border-color .2s ease,transform .2s ease; }
+.swatch-actions button:hover, .timer-options button:not(:disabled):hover { border-color:var(--accent); transform:translateY(-2px); }
+.memory-card:not(:disabled):hover { transform:translateY(-3px); border-color:var(--accent); }
+.lab-windowbar > span { overflow-wrap:anywhere; }
+@media(max-width:460px) {
+ .lab-header .shell { min-height:65px; }
+ .lab-brand { font-size:18px; }
+ .lab-nav { gap:7px; }
+ .lab-nav a { padding:9px; }
+ .lab-windowbar { padding:13px; font-size:9px; }
+ .lab-hero h1 { font-size:clamp(2.6rem,12vw,4rem); }
+ .palette-grid { gap:8px; }
+ .swatch { min-height:230px; }
+ .swatch-color { min-height:125px; }
+ .swatch-actions { flex-wrap:wrap; }
+ .swatch-actions button { flex-basis:100%; min-height:36px; }
+ .memory-grid { gap:7px; }
+ .memory-card { border-radius:9px; }
+}
