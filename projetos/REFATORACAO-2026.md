@@ -22,7 +22,7 @@ projetos/
 └── lab-notas/
 ```
 
-## Projetos HTML/CSS (19)
+## Exercícios antigos (19: 18 estáticos + Vídeo com JavaScript)
 
 | Projeto | Foco preservado | Refatoração |
 | --- | --- | --- |
@@ -41,14 +41,14 @@ projetos/
 | Receita | Bolo de chocolate | Ingredientes, etapas e dados rápidos |
 | Seletor | Cartões CSS | Reutilização de componentes sem JavaScript |
 | Semáforo | Sinalização visual | Cor + texto, Grid adaptativo |
-| Vídeo | Conteúdo incorporado | Player 16:9, título e descrição autoral |
+| Vídeo | Conteúdo incorporado e corações animados | Player 16:9, descrição autoral e JS de corações otimizado com respeito a movimento reduzido |
 | Cartão de visita | Identidade digital | Apresentação responsiva |
 | Prova | Catálogo gamer | Nove cartões, valores identificados como demonstração |
 | Revisão da Prova | Landing page temática | Seções, galeria de marcas e grid responsivo |
 
 Os antigos CSS que não eram mais usados foram retirados do projeto. A identidade visual
 agora parte de variáveis CSS no arquivo `shared/project-base.css`, com temas e componentes
-específicos quando apropriado. As páginas HTML/CSS **não ganharam lógica JavaScript**.
+específicos quando apropriado. As páginas que originalmente **não tinham JavaScript** continuam sem lógica JS. O projeto Vídeo já possuía corações animados em JavaScript; esse efeito foi preservado e otimizado.
 
 ## Projetos JavaScript (5)
 
@@ -84,7 +84,7 @@ pode ser aberto por `/projetos/<nome-da-pasta>/`.
 - [x] Preservação dos caminhos dos projetos no catálogo
 - [x] Um `h1`, `main` e `footer` em cada página (verificação estática)
 - [x] Easter egg apenas na home (verificação estática nos 24 projetos)
-- [x] JavaScript de todos os cinco laboratórios revisado e verificado sintaticamente
+- [x] JavaScript dos cinco laboratórios e do projeto Vídeo revisado e verificado sintaticamente
 - [x] Imagens principais e fundos amostrados nos caminhos originais
 - [ ] Teste visual em navegador nos tamanhos mobile/tablet/desktop
 - [ ] Testes manuais de fluxo completo dos cinco laboratórios
