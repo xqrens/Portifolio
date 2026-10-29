@@ -47,7 +47,7 @@
       const raw = button.dataset.previewTarget;
       if (!raw || !raw.startsWith("./")) return;
       const link = new URL(raw, document.baseURI);
-      if (link.origin !== location.origin || !link.pathname.includes("/projetos/")) return;
+      if (link.origin !== location.origin || !/\/index\.html$/i.test(decodeURIComponent(link.pathname))) return;
       const card = button.closest(".project-card");
       heading.textContent = card?.dataset.title || "Prévia do projeto";
       external.href = link.href;
