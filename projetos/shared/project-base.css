@@ -195,3 +195,28 @@ body[data-theme="red"] { --accent:#ffa5b0; --accent-soft:rgb(255 165 176 / 12%);
  .product-feature { grid-template-columns:1fr; }
  .spot-compare figure { max-width:750px; }
 }
+
+/* Video experiment: original floating-hearts interaction, now lightweight. */
+body[data-project="video"] .site-bar,
+body[data-project="video"] main,
+body[data-project="video"] .site-footer { position:relative; z-index:1; }
+.floating-heart {
+  position:fixed;
+  z-index:0;
+  bottom:-35px;
+  left:var(--heart-x,50vw);
+  color:#ff9bad;
+  font-size:var(--heart-size,20px);
+  line-height:1;
+  opacity:0;
+  pointer-events:none;
+  user-select:none;
+  animation:heart-rise var(--heart-duration,5500ms) linear forwards;
+}
+@keyframes heart-rise {
+  0% { opacity:0; transform:translate3d(0,0,0) rotate(-12deg); }
+  12% { opacity:.7; }
+  80% { opacity:.45; }
+  100% { opacity:0; transform:translate3d(25px,-110vh,0) rotate(18deg); }
+}
+@media(prefers-reduced-motion:reduce) { .floating-heart { display:none; animation:none; } }
