@@ -4,9 +4,9 @@
 
 # Luiz Eduardo · Portfólio
 
-**Estudante de Desenvolvimento de Sistemas no SENAI | HTML • CSS • JavaScript**
+**Estudante de Administração • Jovem aprendiz nos Correios • Projetos pessoais de HTML, CSS e JavaScript**
 
-Uma vitrine dos projetos que estou criando enquanto aprendo desenvolvimento web.
+Uma vitrine da minha evolução em projetos de programação. Minha formação atual é em Administração, e não concluí Desenvolvimento de Sistemas.
 
 [![Ver portfólio](https://img.shields.io/badge/VER_PORTFÓLIO-BEB7FF?style=for-the-badge&logo=vercel&logoColor=10111a)](https://portifolio-projetos-git-main-pedro-luiz.vercel.app/)
 [![Mente em Flor](https://img.shields.io/badge/MENTE_EM_FLOR-92BDA6?style=for-the-badge&logoColor=0d1d17)](https://xqrens-portifolio.vercel.app/)
@@ -24,24 +24,44 @@ Uma vitrine dos projetos que estou criando enquanto aprendo desenvolvimento web.
 
 ## ✦ Sobre este repositório
 
-Meu nome é **Luiz Eduardo**. Estudo programação no **SENAI** e uso este repositório para compartilhar meus trabalhos, acompanhar minha evolução e aprender a organizar projetos no GitHub.
+Meu nome é **Luiz Eduardo**. Atualmente estudo **Administração** e trabalho como **jovem aprendiz nos Correios**. Continuei cultivando o interesse por desenvolvimento web e uso este repositório para compartilhar meus projetos pessoais e acompanhar minha evolução. **Não concluí o curso de Desenvolvimento de Sistemas.**
 
 O portfólio principal é um site estático criado com **HTML, CSS e JavaScript**, com interface escura, navegação direta e algumas imagens de anime que já faziam parte da minha coleção de referências.
 
-A ideia é simples: mostrar **quem sou, meus projetos, o Mente em Flor e como entrar em contato comigo**, sem inventar experiência profissional que ainda não tenho.
+A ideia é simples: mostrar **quem sou, meus projetos, o Mente em Flor e como entrar em contato comigo**, sem confundir projetos pessoais com experiência profissional como desenvolvedor.
 
 ### O que você encontra no site
 
 | Seção | Conteúdo |
 | --- | --- |
-| **Sobre mim** | Minha apresentação, estudos no SENAI e tecnologias que estou aprendendo |
+| **Sobre mim** | Minha apresentação, estudos atuais em Administração, trabalho nos Correios e projetos web pessoais |
 | **Projetos** | **24 projetos:** 19 atividades de estudo e cinco miniapps interativos com JavaScript |
+| **Atualmente** | Administração em andamento, jovem aprendiz nos Correios e atualizações públicas do GitHub |
+| **Trajetória** | Da primeira página HTML à refatoração dos projetos |
+| **Estudos de caso** | Mente em Flor, XQRENS Portfolio e Paleta Lab |
+| **Antes e depois** | Comparação de trechos reais do código anterior e atual |
+| **Área para oportunidades** | Resumo verdadeiro do meu perfil, currículo web e GitHub |
 | **Referências visuais** | Seis imagens do meu arquivo pessoal: mangá, arte monocromática e memes |
 | **Spotify** | Meu perfil público, três playlists com cards temáticos e players oficiais expansíveis |
 | **Mente em Flor** | Apresentação e link para meu site educativo sobre saúde mental |
 | **Contato** | GitHub, Instagram e canal para sugestões |
 
 Os projetos têm **busca pelo nome, filtros HTML/CSS/Páginas/JavaScript e uma opção para expandir a lista completa**. Não é necessário instalar bibliotecas nem criar uma conta.
+
+### Novidades do XQRENS Portfolio 2.0
+
+- **24 prévias interativas:** cada projeto pode ser aberto num painel ao vivo; o iframe só é carregado ao clicar.
+- **Estudos de caso:** páginas em `projetos/cases/` para explicar contexto, solução, implementação e aprendizados, sem métricas inventadas.
+- **Antes e depois:** três comparações com trechos reais do histórico Git (commit antigo referenciado no site).
+- **Linha do tempo:** etapas do aprendizado e situação atual em Administração.
+- **Painel Atualmente:** informações atuais e consulta aos últimos commits públicos do GitHub, com fallback.
+- **Animações cinematográficas:** efeitos progressivos em CSS com respeito a movimento reduzido.
+- **Área para oportunidades:** perfil real, currículo web e links de projetos, sem declarar conclusão de curso ou experiência profissional como desenvolvedor.
+- **Easter egg de Punpun:** discreto e reservado apenas à home do portfólio.
+
+Os módulos novos ficam em `projetos/portfolio-2026.css` e `projetos/portfolio-2026.js`, separados do player do Spotify e das demais interações já existentes.
+
+
 
 
 ## 🎧 Spotify e controle de animações
