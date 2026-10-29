@@ -374,3 +374,27 @@ p{margin-top:0}
  html:not([data-motion="on"]){scroll-behavior:auto}
  html:not([data-motion="on"]) *,html:not([data-motion="on"]) *::before,html:not([data-motion="on"]) *::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
+
+
+/* ========================================================================
+   XQRENS · Punpun secret (accessible native dialog, subtle footer trigger)
+   ======================================================================== */
+.project-card:focus-within{border-color:#bdb6ff90;box-shadow:0 18px 42px #0005}
+.punpun-secret{display:inline-grid;place-items:center;min-width:26px;min-height:26px;padding:0 6px;margin:-6px 0;background:transparent;border:1px solid transparent;border-radius:50%;color:#a9a5c7;opacity:.28;cursor:pointer;font:600 16px var(--sans);transition:opacity .25s ease,transform .3s ease,color .25s ease,border-color .25s ease}
+.punpun-secret:hover,.punpun-secret:focus-visible{opacity:1;transform:rotate(70deg);color:#c8bfff;border-color:#4d446b}
+.punpun-dialog{position:fixed;inset:0;max-width:min(530px,calc(100vw - 30px));max-height:min(92dvh,720px);width:100%;margin:auto;padding:0;background:linear-gradient(145deg,#151824,#0b1017 80%);border:1px solid #59536b;border-radius:19px;box-shadow:0 30px 110px #000b;color:var(--text);overflow:auto}
+.punpun-dialog::backdrop{background:rgba(3,5,12,.78);backdrop-filter:blur(7px)}
+.punpun-dialog[open]{animation:punpun-enter .42s cubic-bezier(.2,.8,.2,1) both}
+.punpun-dialog-top{padding:17px 23px;display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid #343545;font:600 10px var(--mono);letter-spacing:.12em;color:#c0bbd8}
+.punpun-close{display:grid;place-items:center;width:35px;height:35px;border:1px solid #494659;border-radius:9px;background:#ffffff09;color:#ede9ff;font-size:25px;cursor:pointer;transition:background .2s,border-color .2s}
+.punpun-close:hover{background:#ffffff17;border-color:#b0a8ce}
+.punpun-dialog-body{padding:clamp(26px,6vw,48px) clamp(23px,6vw,46px) 41px}
+.punpun-symbol{font-size:35px;color:#c8b9ff}
+.punpun-eyebrow{font:600 10px/1.7 var(--mono);letter-spacing:.13em;color:#b8aed8;margin:18px 0 11px}
+.punpun-dialog h2{font:600 clamp(26px,5vw,38px)/1.14 var(--display);letter-spacing:-.04em;margin:0 0 21px}
+.punpun-quote{font:400 clamp(16px,3.4vw,21px)/1.65 var(--sans);color:#e1deed;margin:0 0 25px}
+.punpun-credit{font:400 11px/1.8 var(--sans);color:#a6a3b4;padding-top:18px;border-top:1px solid #373547}
+@keyframes punpun-enter{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(hover:none){.punpun-secret{opacity:.7}}
+@media(prefers-reduced-motion:reduce){html:not([data-motion="on"]) .punpun-dialog[open]{animation:none}html:not([data-motion="on"]) .punpun-secret{transition:none}}
+html[data-motion="off"] .punpun-dialog[open]{animation:none}
