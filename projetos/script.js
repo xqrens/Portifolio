@@ -5,6 +5,16 @@
 (()=>{
   "use strict";
   const run=()=>{
+    const secret=document.getElementById("punpunSecret");
+    const secretDialog=document.getElementById("punpunDialog");
+    const closeSecret=document.getElementById("punpunClose");
+    if(secret&&secretDialog&&closeSecret&&typeof secretDialog.showModal==="function"){
+      secret.addEventListener("click",()=>secretDialog.showModal());
+      closeSecret.addEventListener("click",()=>secretDialog.close());
+      secretDialog.addEventListener("click",event=>{
+        if(event.target===secretDialog)secretDialog.close();
+      });
+    }
     const menuButton=document.getElementById("menuToggle");
     const menu=document.getElementById("site-nav");
     const links=menu?[...menu.querySelectorAll('a[href^="#"]')]:[];
@@ -54,7 +64,7 @@
       sections.forEach(section=>observer.observe(section));
     }
 
-    // Catálogo de projetos: 19 cards reais no HTML, com busca local.
+    // Catálogo de projetos: 24 cards reais no HTML, com busca local.
     const grid=document.getElementById("projectGrid");
     const query=document.getElementById("projectSearch");
     const counter=document.getElementById("projectCount");
