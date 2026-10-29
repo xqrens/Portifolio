@@ -26,14 +26,19 @@
     toastTimeout = setTimeout(() => toast.classList.remove('show'), 2900);
   }
 
-  // Entrada curta: não bloqueia conteúdo nem teclado por muito tempo.
+  // A tela de introdução funciona mesmo quando o navegador bloqueia storage.
   const intro = $('.intro-screen');
-  if (intro && !prefersReducedMotion && !sessionStorage.getItem('mente-em-flor:intro')) {
+  const introKey = 'mente-em-flor:intro';
+  const session = {
+    read(key) { try { return sessionStorage.getItem(key); } catch { return null; } },
+    write(key, value) { try { sessionStorage.setItem(key, value); } catch { /* navegação privada */ } }
+  };
+  if (intro && !prefersReducedMotion && !session.read(introKey)) {
     document.body.classList.add('intro-running');
     setTimeout(() => {
       intro.classList.add('is-over');
       document.body.classList.remove('intro-running');
-      sessionStorage.setItem('mente-em-flor:intro', '1');
+      session.write(introKey, '1');
     }, 1350);
   } else if (intro) {
     intro.classList.add('is-over');
