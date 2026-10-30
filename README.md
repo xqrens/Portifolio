@@ -4,9 +4,9 @@
 
 # Luiz Eduardo · Portfólio
 
-**Estudante de Administração • Jovem aprendiz nos Correios • Projetos pessoais de HTML, CSS e JavaScript**
+**Cursando Aprendizagem Industrial de Assistente Administrativo • Jovem aprendiz nos Correios • Projetos pessoais de HTML, CSS e JavaScript**
 
-Uma vitrine da minha evolução em projetos de programação. Minha formação atual é em Administração, e não concluí Desenvolvimento de Sistemas.
+Uma vitrine da minha evolução em projetos de programação. Meu curso atual é Aprendizagem Industrial de Assistente Administrativo (em andamento), e não concluí Desenvolvimento de Sistemas.
 
 [![Ver portfólio](https://img.shields.io/badge/VER_PORTFÓLIO-BEB7FF?style=for-the-badge&logo=vercel&logoColor=10111a)](https://portifolio-projetos-git-main-pedro-luiz.vercel.app/)
 [![Mente em Flor](https://img.shields.io/badge/MENTE_EM_FLOR-92BDA6?style=for-the-badge&logoColor=0d1d17)](https://xqrens-portifolio.vercel.app/)
@@ -24,7 +24,7 @@ Uma vitrine da minha evolução em projetos de programação. Minha formação a
 
 ## ✦ Sobre este repositório
 
-Meu nome é **Luiz Eduardo**. Atualmente estudo **Administração** e trabalho como **jovem aprendiz nos Correios**. Continuei cultivando o interesse por desenvolvimento web e uso este repositório para compartilhar meus projetos pessoais e acompanhar minha evolução. **Não concluí o curso de Desenvolvimento de Sistemas.**
+Meu nome é **Luiz Eduardo**. Atualmente curso **Aprendizagem Industrial de Assistente Administrativo (em andamento)** e trabalho como **jovem aprendiz nos Correios**. Continuei cultivando o interesse por desenvolvimento web e uso este repositório para compartilhar meus projetos pessoais e acompanhar minha evolução. **Não concluí o curso de Desenvolvimento de Sistemas.**
 
 O portfólio principal é um site estático criado com **HTML, CSS e JavaScript**, com interface escura, navegação direta e algumas imagens de anime que já faziam parte da minha coleção de referências.
 
@@ -34,9 +34,9 @@ A ideia é simples: mostrar **quem sou, meus projetos, o Mente em Flor e como en
 
 | Seção | Conteúdo |
 | --- | --- |
-| **Sobre mim** | Minha apresentação, estudos atuais em Administração, trabalho nos Correios e projetos web pessoais |
+| **Sobre mim** | Minha apresentação, curso de Aprendizagem Industrial de Assistente Administrativo, trabalho nos Correios e projetos web pessoais |
 | **Projetos** | **24 projetos:** 19 atividades de estudo e cinco miniapps interativos com JavaScript |
-| **Atualmente** | Administração em andamento, jovem aprendiz nos Correios e atualizações públicas do GitHub |
+| **Atualmente** | Aprendizagem Industrial de Assistente Administrativo em andamento, jovem aprendiz nos Correios e atualizações públicas do GitHub |
 | **Trajetória** | Da primeira página HTML à refatoração dos projetos |
 | **Estudos de caso** | Mente em Flor, XQRENS Portfolio e Paleta Lab |
 | **Antes e depois** | Comparação de trechos reais do código anterior e atual |
@@ -53,7 +53,7 @@ Os projetos têm **busca pelo nome, filtros HTML/CSS/Páginas/JavaScript e uma o
 - **24 prévias interativas:** cada projeto pode ser aberto num painel ao vivo; o iframe só é carregado ao clicar.
 - **Estudos de caso:** páginas em `projetos/cases/` para explicar contexto, solução, implementação e aprendizados, sem métricas inventadas.
 - **Antes e depois:** três comparações com trechos reais do histórico Git (commit antigo referenciado no site).
-- **Linha do tempo:** etapas do aprendizado e situação atual em Administração.
+- **Linha do tempo:** etapas do aprendizado e situação atual no curso de Aprendizagem Industrial de Assistente Administrativo.
 - **Painel Atualmente:** informações atuais e consulta aos últimos commits públicos do GitHub, com fallback.
 - **Animações cinematográficas:** efeitos progressivos em CSS com respeito a movimento reduzido.
 - **Área para oportunidades:** perfil real, currículo web e links de projetos, sem declarar conclusão de curso ou experiência profissional como desenvolvedor.
