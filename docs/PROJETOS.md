@@ -1,8 +1,22 @@
 # Projetos e exercícios · Luiz Eduardo
 
-Este arquivo reúne meus **19 exercícios de HTML e CSS** e os dois projetos que destaco no portfólio. Sou estudante de Desenvolvimento de Sistemas no SENAI; os trabalhos mostram etapas reais do aprendizado, desde páginas simples até projetos maiores.
+Este arquivo reúne atividades de programação, cinco laboratórios JavaScript e os projetos que destaco no portfólio. Estudei disciplinas do **Técnico em Desenvolvimento de Sistemas**, mas **não concluí esse curso**. Atualmente curso **Aprendizagem Industrial de Assistente Administrativo** e trabalho como **jovem aprendiz nos Correios**. Os projetos são registros do meu aprendizado, não uma formação em Desenvolvimento Web.
 
 [← Voltar ao README](../README.md) · [🌐 Ver o portfólio](https://portifolio-projetos-git-main-pedro-luiz.vercel.app/)
+
+## Disciplinas que estudei no Técnico em Desenvolvimento de Sistemas
+
+- Banco de Dados
+- Desenvolvimento Socioprofissional
+- Fundamentos de Eletroeletrônica Aplicada
+- Introdução à Qualidade e Produtividade
+- Introdução à Tecnologia da Informação e Comunicação
+- Introdução ao Desenvolvimento de Projetos
+- Lógica de Programação
+- Modelagem de Sistemas
+- Programação de Aplicativos
+
+**Observação:** não concluí o curso técnico. Meu curso atual é Aprendizagem Industrial de Assistente Administrativo (em andamento).
 
 ## ✦ Para conhecer primeiro
 
@@ -10,7 +24,7 @@ Este arquivo reúne meus **19 exercícios de HTML e CSS** e os dois projetos que
 
 [Ver código do portfólio](../projetos/index.html)
 
-O site principal, com **Sobre mim, Referências, Trabalhos, Entrelinhas, Mente em Flor e Contato**. Refiz a interface para destacar os repositórios, o aprendizado no SENAI e referências visuais de anime sem esconder o conteúdo em efeitos.
+O site principal reúne **Sobre mim, trajetória, disciplinas estudadas no técnico, estudos de caso, projetos, referências, Mente em Flor e contato**. Refiz a interface para destacar os exercícios e o aprendizado em programação, junto da situação atual em Assistente Administrativo.
 
 **O que pratiquei:** HTML semântico, organização de CSS, responsividade, navegação acessível, busca e filtros de trabalhos com JavaScript.
 
