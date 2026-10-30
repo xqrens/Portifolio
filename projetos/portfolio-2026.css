@@ -102,3 +102,17 @@ body.xq-ready .xq-reveal.xq-visible{opacity:1;transform:none}
 @media(max-width:600px){.xq-current-grid{grid-template-columns:1fr}.xq-current-title{padding:4px}.xq-timeline{grid-template-columns:1fr}.xq-cinema-line{font-size:9px;letter-spacing:.11em}.xq-compare-panel pre{min-height:155px;font-size:11px}.xq-current{padding:35px 0}.xq-preview-dialog{width:calc(100vw - 10px);height:91dvh;border-radius:11px}.xq-preview-head{padding:8px 13px}.xq-preview-foot{padding:9px 12px}.xq-case-card{padding:23px}}
 html[data-motion=off] body.xq-ready .xq-reveal,html[data-motion=off] .xq-cinema-line,html[data-motion=off] .xq-hero-note{animation:none!important;transition:none!important;opacity:1!important;transform:none!important;filter:none!important}
 @media(prefers-reduced-motion:reduce){html:not([data-motion=on]) body.xq-ready .xq-reveal,html:not([data-motion=on]) .xq-cinema-line,html:not([data-motion=on]) .xq-hero-note{animation:none!important;transition:none!important;opacity:1!important;transform:none!important;filter:none!important}.xq-case-card,.xq-project-thumb img{transition:none!important}}
+
+/* Actual study history: Technical Systems Development modules, not a diploma. */
+.xq-course-history{margin-top:clamp(38px,6vw,70px);padding:clamp(23px,4.2vw,42px);border:1px solid #364557;border-radius:20px;background:linear-gradient(140deg,#17202e,#0e1520)}
+.xq-course-intro{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(225px,.75fr);align-items:end;gap:26px;margin-bottom:26px}
+.xq-course-intro h3{font:650 clamp(27px,3.8vw,43px)/1.15 var(--display);letter-spacing:-.06em;margin:15px 0 0;max-width:620px}
+.xq-course-intro p{color:#b7c2d0;font:13px/1.8 var(--sans);margin:0}
+.xq-course-intro p strong{color:#e7eaf4}
+.xq-course-subjects{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
+.xq-course-subjects li{min-width:0;display:flex;align-items:start;gap:12px;padding:17px 14px;background:#1b2534;border:1px solid #38485b;border-radius:11px}
+.xq-course-subjects li span{flex:none;font:600 10px/1.7 var(--mono);color:#a9d5c6}
+.xq-course-subjects li strong{font:500 13px/1.5 var(--sans);color:#e6ebf2;overflow-wrap:anywhere}
+.xq-course-note{color:#aeb9ca;font:11px/1.8 var(--mono);margin:22px 0 0}
+@media(max-width:920px){.xq-course-subjects{grid-template-columns:repeat(2,minmax(0,1fr))}.xq-course-intro{grid-template-columns:1fr}}
+@media(max-width:580px){.xq-course-history{padding:19px}.xq-course-subjects{grid-template-columns:1fr}.xq-course-subjects li{padding:13px}}
