@@ -24,7 +24,7 @@ Uma vitrine da minha evolução em projetos de programação. Meu curso atual é
 
 ## ✦ Sobre este repositório
 
-Meu nome é **Luiz Eduardo**. Atualmente curso **Aprendizagem Industrial de Assistente Administrativo (em andamento)** e trabalho como **jovem aprendiz nos Correios**. Continuei cultivando o interesse por desenvolvimento web e uso este repositório para compartilhar meus projetos pessoais e acompanhar minha evolução. **Não concluí o curso de Desenvolvimento de Sistemas.**
+Meu nome é **Luiz Eduardo**. Atualmente curso **Aprendizagem Industrial de Assistente Administrativo (em andamento)** e trabalho como **jovem aprendiz nos Correios**. Os projetos de programação deste repositório nasceram das atividades que estudei, especialmente nas disciplinas do Técnico em Desenvolvimento de Sistemas, e continuam servindo como registro do meu aprendizado. **Não concluí o curso de Desenvolvimento de Sistemas.**
 
 O portfólio principal é um site estático criado com **HTML, CSS e JavaScript**, com interface escura, navegação direta e algumas imagens de anime que já faziam parte da minha coleção de referências.
 
@@ -47,6 +47,26 @@ A ideia é simples: mostrar **quem sou, meus projetos, o Mente em Flor e como en
 | **Contato** | GitHub, Instagram e canal para sugestões |
 
 Os projetos têm **busca pelo nome, filtros HTML/CSS/Páginas/JavaScript e uma opção para expandir a lista completa**. Não é necessário instalar bibliotecas nem criar uma conta.
+
+### Minha formação, sem confusão
+
+- **Curso atual:** Aprendizagem Industrial de Assistente Administrativo, em andamento.
+- **Trabalho:** jovem aprendiz nos Correios.
+- **Estudos anteriores:** disciplinas do **Técnico em Desenvolvimento de Sistemas**, sem conclusão do curso e sem diploma da área.
+
+As disciplinas que estudei no técnico foram:
+
+- Banco de Dados
+- Desenvolvimento Socioprofissional
+- Fundamentos de Eletroeletrônica Aplicada
+- Introdução à Qualidade e Produtividade
+- Introdução à Tecnologia da Informação e Comunicação
+- Introdução ao Desenvolvimento de Projetos
+- Lógica de Programação
+- Modelagem de Sistemas
+- Programação de Aplicativos
+
+Os exercícios publicados neste repositório são evidências de prática e aprendizado. **Desenvolvimento Web não é o nome de um curso que concluí**, e não apresento esses projetos como experiência profissional na área.
 
 ### Novidades do XQRENS Portfolio 2.0
 
@@ -104,7 +124,7 @@ O site também ganhou uma **galeria com seis imagens enviadas por mim**, animaç
   <tr>
     <td width="50%" valign="top">
       <h3>01 · Portfólio pessoal</h3>
-      <p>Meu espaço na web. Interface responsiva, referências visuais de anime e cards para explorar os trabalhos do SENAI.</p>
+      <p>Meu espaço na internet, com atividades de programação e estudos anteriores do Técnico em Desenvolvimento de Sistemas, sem conclusão do curso.</p>
       <p><b>HTML • CSS • JavaScript</b></p>
       <p><a href="https://portifolio-projetos-git-main-pedro-luiz.vercel.app/">Visitar site ↗</a> · <a href="./projetos/">Ver código ↗</a></p>
     </td>
