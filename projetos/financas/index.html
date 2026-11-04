@@ -35,13 +35,80 @@ dialog{border:1px solid #567066;box-shadow:0 35px 110px #000c;background:#141f25
 @media(max-width:740px){.app{display:block}.sidebar{position:static;height:auto;padding:15px 18px;border-right:0;border-bottom:1px solid var(--line);display:flex;flex-direction:row;align-items:center;gap:16px}.brand{font-size:20px}.brand-icon{width:37px;height:37px}.nav{display:flex;gap:0;margin-left:auto}.nav a{padding:9px}.nav a span{display:none}.side-bottom{display:none}.content{padding:24px 17px 40px}.topbar{margin-bottom:23px}.welcome{padding:25px 21px}.welcome-tag{display:none}.stats{gap:10px}.stat{padding:17px}.stat-value{font-size:22px}.plan{grid-template-columns:1fr}}
 @media(max-width:460px){.sidebar{flex-wrap:wrap}.nav{width:100%;justify-content:space-between}.nav a{font-size:11px}.tools{width:100%}.tools .btn{flex:1}.welcome h2{font-size:31px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stat-value{font-size:19px}.stat-name{font-size:10px}.panel{padding:17px}.chart{gap:3px}.chart-bars{gap:4px}.donut{width:125px;height:125px}.table-toolbar{padding:13px}.table-toolbar input{min-width:100%}.fields{grid-template-columns:1fr}.field.full{grid-column:auto}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+/* FLUXO · interface 2.0 · motion-friendly, financial goals */
+:root{--accent-glow:#9ff1c5}
+body{background:radial-gradient(ellipse 70% 50% at 48% -18%,#265d4f30,transparent 68%),radial-gradient(ellipse 42% 35% at 100% 15%,#755ca814,transparent 75%),var(--bg)}
+.sidebar{background:linear-gradient(180deg,#0c1519 0%,#0b1217 100%)}.nav a.active{box-shadow:inset 3px 0 0 #9debc3;background:#21382c}
+.brand-icon{box-shadow:0 0 0 5px #8ef4ba0a}.brand em{filter:drop-shadow(0 0 12px #8fffc536)}
+.content{animation:fluxo-page-in .65s cubic-bezier(.2,.8,.2,1) both}
+@keyframes fluxo-page-in{from{opacity:0;transform:translateY(13px)}to{opacity:1;transform:none}}
+.welcome{min-height:206px;align-items:center;box-shadow:0 22px 60px #0003;isolation:isolate;background:radial-gradient(ellipse 60% 100% at 90% 5%,#427b5c77,transparent 65%),linear-gradient(130deg,#173729,#11231e)}
+.welcome::before{content:"";z-index:-1;position:absolute;inset:0;pointer-events:none;background:linear-gradient(105deg,transparent 8%,#ffffff0c 47%,transparent 60%);transform:translateX(-140%);animation:fluxo-sheen 12s ease-in-out infinite}
+@keyframes fluxo-sheen{0%,78%,100%{transform:translateX(-140%)}89%{transform:translateX(140%)}}
+.welcome h2{font-size:clamp(35px,4.2vw,57px);letter-spacing:-.075em}.welcome h2 span{background:linear-gradient(120deg,#91e8ae,#e2ffe7 80%);color:transparent;background-clip:text}
+.stat,.panel{position:relative;transition:border-color .3s ease,box-shadow .35s ease,transform .35s cubic-bezier(.18,.7,.2,1)}
+.stat{background:linear-gradient(155deg,#17242b,#101b22);border-color:#334448;box-shadow:0 14px 25px #0002}
+.stat::after{content:"";position:absolute;right:-26px;top:-43px;width:103px;height:103px;background:radial-gradient(circle,var(--accent,#a4ebc0) 0%,transparent 66%);opacity:.10;pointer-events:none}
+.stat:hover{transform:translateY(-5px);border-color:#628b77;box-shadow:0 18px 35px #0006}.stat-value{font-variant-numeric:tabular-nums}
+.panel:hover{border-color:#455c59;box-shadow:0 20px 38px #0003}.stat,.panel{animation:fluxo-rise .6s both;animation-delay:calc(var(--order,0) * 85ms)}
+.stats .stat:nth-child(1){--order:1}.stats .stat:nth-child(2){--order:2}.stats .stat:nth-child(3){--order:3}.stats .stat:nth-child(4){--order:4}
+@keyframes fluxo-rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.chart-bars{transition:border-color .3s ease}.bar{transition:height .65s cubic-bezier(.2,.8,.2,1),filter .25s ease;transform-origin:bottom}.bar:hover{filter:brightness(1.3)}.donut{transition:background .4s,transform .4s}.donut:hover{transform:scale(1.045)}
+.btn{transition:transform .22s cubic-bezier(.2,.8,.2,1),background .24s,border-color .24s,box-shadow .24s}.btn.primary:hover{box-shadow:0 12px 30px #b5f4ca42}
+html{scroll-padding-top:18px}
+.planner{margin:30px 0 38px;scroll-margin-top:20px}.planner-intro{display:flex;justify-content:space-between;gap:15px;align-items:center;flex-wrap:wrap;margin-bottom:18px}
+.planner-intro h2{font-size:clamp(26px,3vw,37px);letter-spacing:-.055em;margin:7px 0}.planner-intro p{font-size:12px;line-height:1.65;color:var(--muted);margin:0;max-width:640px}
+.planner-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(275px,.7fr);gap:17px}
+.planner-config{background:linear-gradient(155deg,#18252a,#101a20);border:1px solid #36534d;border-radius:23px;padding:27px;min-width:0}
+.planner-config-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.planner-config-head h3{font-size:21px;letter-spacing:-.05em;margin:4px 0 0}.planner-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.planner-field{display:grid;gap:7px;min-width:0}.planner-field label{font-size:11px;font-weight:650;color:#c5d7d1}.planner-field small{font-size:10px;line-height:1.4;color:#829e99}
+.planner-field input{width:100%;min-width:0;min-height:49px;background:#0e191c;border:1px solid #3a5450;border-radius:11px;color:#e8fff1;padding:12px 13px;font-variant-numeric:tabular-nums;font-size:15px;font-weight:650;transition:border-color .2s,box-shadow .2s}
+.planner-field input:focus{outline:none;border-color:#b3edc6;box-shadow:0 0 0 3px #a3efd720}
+.planner-note{color:#9ebbb1;font-size:11px;line-height:1.8;margin:19px 0 0}
+.planner-result{border-radius:23px;padding:30px;min-height:100%;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:12px;background:radial-gradient(ellipse 95% 60% at 70% 0%,#315d4e88,transparent 80%),linear-gradient(160deg,#19332a,#101e24 82%);border:1px solid #4d856e;isolation:isolate}
+.planner-result::before{content:"◉";position:absolute;right:-48px;top:-51px;font:300 205px/1 Georgia,serif;color:#b6f2c70c;pointer-events:none;z-index:-1}
+.planner-result-label{font:700 10px/1.5 ui-monospace,Consolas,monospace;letter-spacing:.13em;color:#bcf3d0}
+.planner-main-number{font-weight:800;letter-spacing:-.075em;font-size:clamp(35px,4vw,56px);font-variant-numeric:tabular-nums;color:#d5ffe7;margin:8px 0 4px;overflow-wrap:anywhere}
+.planner-result-desc{font-size:12px;line-height:1.7;color:#abc8b9;margin:0 0 12px}
+.planner-meter{height:12px;background:#071713;border:1px solid #49715d;border-radius:99px;overflow:hidden;position:relative}
+.planner-meter > span{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#6ace9a,#b4fbd0);transition:width .65s cubic-bezier(.2,.8,.2,1)}
+.planner-breakdown{margin-top:auto;padding-top:18px;border-top:1px solid #5e8b7155;display:grid;gap:11px}
+.planner-breakdown div{display:flex;justify-content:space-between;gap:14px;align-items:baseline;font-size:12px;color:#b1cabd}
+.planner-breakdown strong{color:#edfff2;font-size:13px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.planner-alert{font-size:11px;line-height:1.6;color:#f2dfaa;margin:4px 0 0;min-height:18px}
+.planner-result.is-over{border-color:#95666a;background:radial-gradient(ellipse at 70% 0%,#5d383c88,transparent 70%),linear-gradient(140deg,#302022,#142027)}
+.planner-result.is-over .planner-main-number{color:#ffd1c9}
+.planner-goals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px;margin-top:17px}
+.goal-card{border:1px solid #3b5054;border-radius:21px;padding:25px;background:linear-gradient(155deg,#1a252d,#111a20);min-width:0;position:relative;overflow:hidden;transition:transform .3s,border-color .3s,box-shadow .3s}
+.goal-card:hover{transform:translateY(-4px);border-color:#779d8a;box-shadow:0 15px 30px #0004}
+.goal-card::before{content:"";position:absolute;right:-25px;top:-34px;width:125px;height:125px;border-radius:50%;background:var(--goal-glow,#b6edce);opacity:.06;filter:blur(8px);pointer-events:none}
+.goal-card.iphone{--goal-glow:#c1b4fc}.goal-top{display:flex;align-items:center;gap:12px}.goal-icon{width:47px;height:47px;display:grid;place-items:center;background:#273d35;border:1px solid #557b66;color:#b9f8d2;border-radius:13px;font-size:23px}
+.goal-card.iphone .goal-icon{background:#342e48;border-color:#776aa2;color:#d5caff}
+.goal-top small{display:block;color:#a1b9af;font:700 9px ui-monospace,monospace;letter-spacing:.12em}.goal-top h3{font-size:19px;letter-spacing:-.05em;margin:5px 0}
+.goal-descr{font-size:11px;line-height:1.7;color:#98b0ae;min-height:34px;margin:14px 0}
+.goal-inputs{display:grid;grid-template-columns:1fr 1fr;gap:12px}.goal-inputs label{display:block;font-size:10px;color:#c1d0cc;margin-bottom:5px}.goal-inputs input{width:100%;min-width:0;min-height:41px;border-radius:9px;border:1px solid #42585b;background:#0f1b20;padding:9px;color:#e8f9ed;font-size:13px}
+.goal-progress{height:9px;background:#26373b;border-radius:99px;overflow:hidden;margin:18px 0 9px}
+.goal-progress > span{display:block;height:100%;width:0;transition:width .6s ease;background:linear-gradient(90deg,#5cbf90,#b5f4ca);border-radius:inherit}
+.goal-card.iphone .goal-progress > span{background:linear-gradient(90deg,#867dc5,#c6b6fc)}
+.goal-results{display:flex;justify-content:space-between;gap:15px;align-items:baseline;flex-wrap:wrap;color:#a9bcb8;font-size:11px}
+.goal-results strong{color:#e9f5ec;font-size:12px}
+.goal-note{margin:12px 0 0;color:#9fb6b0;font-size:11px;line-height:1.6}
+.planner-mini-tip{padding:14px 17px;border-radius:13px;background:#172626;border:1px solid #35554e;color:#b4d4c4;line-height:1.7;font-size:11px;margin-top:17px}
+.planner-mini-tip strong{color:#c9f1d7}
+@media(max-width:1160px){.planner-top{grid-template-columns:1fr}.planner-result{min-height:260px}}
+@media(max-width:780px){.planner-goals{grid-template-columns:1fr}.goal-card{padding:21px}.planner-config{padding:21px}.planner-result{padding:25px}}
+@media(max-width:440px){.planner-fields,.goal-inputs{grid-template-columns:1fr}.planner-config-head{align-items:start}.planner-intro .btn{width:100%}.planner-result{padding:21px}.planner-main-number{font-size:40px}}
+@media(prefers-reduced-motion:reduce){.welcome::before,.stat,.panel,.content{animation:none!important}.bar,.planner-meter > span,.goal-progress > span{transition:none!important}}
+
 </style>
 </head>
 <body>
 <div class="app">
 <aside class="sidebar">
   <a href="#inicio" class="brand"><span class="brand-icon" aria-hidden="true">◈</span><span>fluxo<em>.</em></span></a>
-  <nav class="nav" aria-label="Navegação"><a href="#inicio" class="active"><span>◫</span>Visão geral</a><a href="#lancamentos"><span>≡</span>Lançamentos</a><a href="#planejamento"><span>◎</span>Planejamento</a></nav>
+  <nav class="nav" aria-label="Navegação"><a href="#inicio" class="active"><span>◫</span>Visão geral</a><a href="#limite"><span>◎</span>Meu limite</a><a href="#lancamentos"><span>≡</span>Lançamentos</a><a href="#planejamento"><span>◎</span>Planejamento</a></nav>
   <div class="side-bottom"><strong>🔒 Seus dados ficam aqui.</strong><p>Este painel funciona no próprio navegador, sem login ou envio dos lançamentos para um servidor. Faça backups regularmente.</p></div>
 </aside>
 <main class="content" id="inicio">
@@ -69,6 +136,56 @@ dialog{border:1px solid #567066;box-shadow:0 35px 110px #000c;background:#141f25
       <div class="breakdown-wrap"><div class="donut" id="donut" role="img" aria-label="Despesas por categoria"><div class="donut-middle"><strong id="donutTotal">R$ 0,00</strong><small>saídas</small></div></div><div class="categories" id="categoryList"><p class="panel-subtitle">Sem gastos registrados.</p></div></div>
     </section>
   </div>
+
+  <section class="planner" id="limite" aria-labelledby="plannerTitle">
+    <div class="planner-intro">
+      <div><span class="kicker">MEU ORÇAMENTO / METAS REAIS</span><h2 id="plannerTitle">Quanto eu posso gastar?</h2><p>Separe dinheiro para o que importa primeiro. O restante vira seu limite de gastos no mês, sem mexer na reserva e nos sonhos.</p></div>
+      <button type="button" class="btn secondary" id="plannerExample">✧ Testar exemplo: 750 + 200</button>
+    </div>
+    <div class="planner-top">
+      <div class="planner-config">
+        <div class="planner-config-head"><div><span class="kicker">01 / PERSONALIZE</span><h3>Organize suas entradas</h3></div><span class="chip">Atualização imediata</span></div>
+        <div class="planner-fields">
+          <div class="planner-field"><label for="planSalary">Salário previsto (R$)</label><input data-plan id="planSalary" type="number" min="0" max="10000000" step=".01" inputmode="decimal" placeholder="Ex.: 750"><small>Previsão, não lançamento.</small></div>
+          <div class="planner-field"><label for="planExtras">Outras entradas (R$)</label><input data-plan id="planExtras" type="number" min="0" max="10000000" step=".01" inputmode="decimal" placeholder="Ex.: 200"><small>Pé-de-Meia, extras recebidos etc.</small></div>
+          <div class="planner-field"><label for="planPending">Contas que ainda faltam pagar (R$)</label><input data-plan id="planPending" type="number" min="0" max="10000000" step=".01" inputmode="decimal" placeholder="0"><small>Não inclua contas já registradas.</small></div>
+          <div class="planner-field"><label for="planBuffer">Dinheiro intocável / reserva (R$)</label><input data-plan id="planBuffer" type="number" min="0" max="10000000" step=".01" inputmode="decimal" placeholder="Ex.: 100"><small>Para não gastar tudo.</small></div>
+          <div class="planner-field"><label for="planScreenMonthly">Guardar para a tela por mês (R$)</label><input data-plan id="planScreenMonthly" type="number" min="0" max="10000000" step=".01" inputmode="decimal" placeholder="Ex.: 150"><small>Reparo do POCO X6 Pro.</small></div>
+          <div class="planner-field"><label for="planIphoneMonthly">Guardar para o iPhone por mês (R$)</label><input data-plan id="planIphoneMonthly" type="number" min="0" max="10000000" step=".01" inputmode="decimal" placeholder="Ex.: 200"><small>Uma segunda meta.</small></div>
+        </div>
+        <p class="planner-note">ℹ️ O cálculo usa a maior quantia entre sua previsão de entradas e o que já foi registrado neste mês, sem somar duas vezes. Desconta os gastos que você já lançou, as contas que ainda faltam, a reserva e as duas economias.</p>
+      </div>
+      <div class="planner-result" id="plannerResult" aria-live="polite">
+        <div><span class="planner-result-label">LIMITE QUE AINDA POSSO USAR</span><div class="planner-main-number" id="planAvailable">R$ 0,00</div><p class="planner-result-desc" id="planStatus">Preencha sua renda prevista para descobrir o valor disponível.</p></div>
+        <div><div class="planner-meter" role="progressbar" aria-label="Porcentagem do orçamento consumido" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="planMeter"><span id="planMeterFill"></span></div><p class="planner-alert" id="planAlert" role="status"></p></div>
+        <div class="planner-breakdown">
+          <div><span>Entradas previstas / recebidas</span><strong id="planIncome">R$ 0,00</strong></div>
+          <div><span>Gastos já registrados</span><strong id="planSpent">R$ 0,00</strong></div>
+          <div><span>Contas que ainda faltam</span><strong id="planBills">R$ 0,00</strong></div>
+          <div><span>Reserva + dinheiro para metas</span><strong id="planProtected">R$ 0,00</strong></div>
+          <div><span>Limite total de gastos do mês</span><strong id="planSpendingCap">R$ 0,00</strong></div>
+        </div>
+      </div>
+    </div>
+    <div class="planner-goals">
+      <article class="goal-card" aria-labelledby="screenGoalTitle">
+        <div class="goal-top"><span class="goal-icon" aria-hidden="true">▣</span><div><small>PRIORIDADE / CONSERTAR</small><h3 id="screenGoalTitle">Tela do POCO X6 Pro</h3></div></div>
+        <p class="goal-descr">Meta provisória de reparo. Confirme orçamento de tela genuína, mão de obra e garantia antes de pagar.</p>
+        <div class="goal-inputs"><div><label for="planScreenTarget">Custo estimado (R$)</label><input data-plan id="planScreenTarget" type="number" min="0" max="10000000" step=".01" inputmode="decimal"></div><div><label for="planScreenSaved">Já tenho guardado (R$)</label><input data-plan id="planScreenSaved" type="number" min="0" max="10000000" step=".01" inputmode="decimal"></div></div>
+        <div class="goal-progress"><span id="screenGoalFill"></span></div>
+        <div class="goal-results"><span id="screenGoalLeft">Faltam R$ 0,00</span><strong id="screenGoalMonths">Defina uma economia mensal</strong></div>
+      </article>
+      <article class="goal-card iphone" aria-labelledby="iphoneGoalTitle">
+        <div class="goal-top"><span class="goal-icon" aria-hidden="true">▣</span><div><small>DESEJO / COM CALMA</small><h3 id="iphoneGoalTitle">iPhone 16</h3></div></div>
+        <p class="goal-descr">Estimativa de preço de varejo para o modelo de 128 GB. Edite conforme a oferta real quando for comprar.</p>
+        <div class="goal-inputs"><div><label for="planIphoneTarget">Preço desejado (R$)</label><input data-plan id="planIphoneTarget" type="number" min="0" max="10000000" step=".01" inputmode="decimal"></div><div><label for="planIphoneSaved">Já tenho guardado (R$)</label><input data-plan id="planIphoneSaved" type="number" min="0" max="10000000" step=".01" inputmode="decimal"></div></div>
+        <div class="goal-progress"><span id="iphoneGoalFill"></span></div>
+        <div class="goal-results"><span id="iphoneGoalLeft">Faltam R$ 0,00</span><strong id="iphoneGoalMonths">Defina uma economia mensal</strong></div>
+      </article>
+    </div>
+    <p class="planner-mini-tip"><strong>Regra útil:</strong> primeiro reserve para as contas essenciais e para consertar o celular que você já tem. O iPhone pode ficar como meta de longo prazo. Os valores desta calculadora são previsões, não dinheiro já recebido.</p>
+  </section>
+
   <section id="lancamentos" aria-labelledby="ledgerTitle">
     <div class="section-heading"><div><h2 id="ledgerTitle">Meus lançamentos</h2><p id="transactionCount">Seus registros do mês, organizados por data.</p></div></div>
     <div class="panel table-panel">
@@ -266,7 +383,7 @@ function renderGoal(list){
 }
 function render(){
   const list=currentTransactions();
-  renderStats(list);renderChart();renderCategories(list);renderTable(list);renderGoal(list);
+  renderStats(list);renderChart();renderCategories(list);renderTable(list);renderGoal(list);renderPlanner(list);
 }
 function setCategories(value){
   const selected=$("entryCategory").value;
@@ -397,6 +514,72 @@ $("exportCsv").addEventListener("click",()=>{
   download("fluxo-lancamentos-"+selectedMonth()+".csv",csv,"text/csv;charset=utf-8");
   notify("Tabela do mês exportada.");
 });
+
+/* PLANEJADOR PRIVADO · nenhum salário é salvo no código do site. */
+const PLAN_KEY="fluxo-budget-v2";
+const planFields=["planSalary","planExtras","planPending","planBuffer","planScreenMonthly","planIphoneMonthly","planScreenTarget","planScreenSaved","planIphoneTarget","planIphoneSaved"];
+const planDefaults={planSalary:0,planExtras:0,planPending:0,planBuffer:0,planScreenMonthly:0,planIphoneMonthly:0,planScreenTarget:650,planScreenSaved:0,planIphoneTarget:4800,planIphoneSaved:0};
+function loadPlan(){
+  try{
+    const obj=JSON.parse(localStorage.getItem(PLAN_KEY)||"null");
+    if(obj&&typeof obj==="object"){
+      const plan={...planDefaults};
+      for(const id of planFields)if(typeof obj[id]==="number"&&Number.isFinite(obj[id])&&obj[id]>=0&&obj[id]<=10000000)plan[id]=obj[id];
+      return plan;
+    }
+  }catch(_){}
+  return {...planDefaults};
+}
+let plan=loadPlan();
+function planValue(id){const value=Number($(id).value);return Number.isFinite(value)?Math.max(0,Math.min(10000000,value)):0;}
+function planSetInputs(){for(const id of planFields){$(id).value=plan[id]===0?"":String(plan[id]);}}
+function planSave(){
+  try{localStorage.setItem(PLAN_KEY,JSON.stringify(plan));return true;}catch(_){notify("Não consegui salvar esta previsão no navegador.");return false;}
+}
+function goalDisplay(prefix,target,saved,monthly){
+  const left=Math.max(0,target-saved);
+  $(prefix+"GoalLeft").textContent=left===0?"Meta alcançada!":"Faltam "+formatCents(Math.round(left*100));
+  $(prefix+"GoalFill").style.width=target>0?Math.min(100,saved/target*100)+"%":"0%";
+  $(prefix+"GoalMonths").textContent=left===0?"Objetivo atingido":monthly>0?Math.ceil(left/monthly)+" "+(Math.ceil(left/monthly)===1?"mês":"meses")+" para juntar":"Defina quanto guardar";
+}
+function renderPlanner(list){
+  const recordedIncome=sum(list,"income")/100,spent=sum(list,"expense")/100;
+  const plannedIncome=plan.planSalary+plan.planExtras;
+  const income=Math.max(recordedIncome,plannedIncome);
+  const future=plan.planPending,protect=plan.planBuffer+plan.planScreenMonthly+plan.planIphoneMonthly;
+  const spendingCap=Math.max(0,income-future-protect);
+  const available=income-future-protect-spent;
+  const shown=Math.max(0,available);
+  const result=$("plannerResult");result.classList.toggle("is-over",available<0);
+  $("planAvailable").textContent=formatCents(Math.round(shown*100));
+  $("planIncome").textContent=formatCents(Math.round(income*100));
+  $("planSpent").textContent=formatCents(Math.round(spent*100));
+  $("planBills").textContent=formatCents(Math.round(future*100));
+  $("planProtected").textContent=formatCents(Math.round(protect*100));
+  $("planSpendingCap").textContent=formatCents(Math.round(spendingCap*100));
+  const usedPct=spendingCap>0?Math.min(100,Math.round(spent/spendingCap*100)):(spent>0?100:0);
+  $("planMeterFill").style.width=usedPct+"%";
+  $("planMeter").setAttribute("aria-valuenow",String(usedPct));
+  const noIncome=income<=0;
+  $("planStatus").textContent=noIncome?"Registre uma entrada ou preencha sua previsão de renda.":available<0?"O planejado e o que você já gastou ultrapassam a renda deste mês.":shown===0?"Seu dinheiro disponível para novos gastos chegou a zero.":"Esse é o limite estimado de novos gastos, preservando seus objetivos.";
+  $("planAlert").textContent=noIncome?"Os R$ 750 e R$ 200 do botão são apenas um exemplo, nada é registrado automaticamente.":available<0?"Atenção: faltam "+formatCents(Math.round(-available*100))+" para cobrir o plano.":income<future+protect?"Suas reservas e contas futuras já consomem toda a renda.":"As metas só são guardadas de verdade quando você separa o dinheiro.";
+  goalDisplay("screen",plan.planScreenTarget,plan.planScreenSaved,plan.planScreenMonthly);
+  goalDisplay("iphone",plan.planIphoneTarget,plan.planIphoneSaved,plan.planIphoneMonthly);
+}
+planSetInputs();
+for(const id of planFields){
+  $(id).addEventListener("input",()=>{
+    plan[id]=Math.round(planValue(id)*100)/100;
+    planSave();renderPlanner(currentTransactions());
+  });
+}
+$("plannerExample").addEventListener("click",()=>{
+  if(!confirm("Preencher a calculadora com um exemplo de R$ 750 de salário e R$ 200 de outras entradas? Isso não altera seus lançamentos."))return;
+  plan={...plan,planSalary:750,planExtras:200,planPending:200,planBuffer:100,planScreenMonthly:150,planIphoneMonthly:200};
+  planSetInputs();planSave();renderPlanner(currentTransactions());
+  notify("Exemplo preenchido! Edite os valores para a sua realidade.");
+});
+
 render();
 })();
 </script>
