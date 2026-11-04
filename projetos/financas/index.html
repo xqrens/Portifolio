@@ -6,6 +6,8 @@
 <meta name="theme-color" content="#0b1115">
 <meta name="description" content="Fluxo, um painel financeiro pessoal com receitas, despesas, parcelas e planejamento. Informações salvas no próprio navegador.">
 <title>Fluxo. | Meu dinheiro, organizado</title>
+<link rel="icon" type="image/jpeg" href="./sachi-avatar.jpg?v=20261104">
+<meta property="og:title" content="Fluxo. | Controle financeiro pessoal">
 <style>
 :root{color-scheme:dark;--bg:#0b1115;--panel:#121a20;--panel2:#172129;--line:#2c3941;--text:#eff6f3;--muted:#99a9b0;--mint:#b5f4ca;--purple:#bbaffc;--red:#ffafa9;--yellow:#ffdba2;--radius:19px;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse 50% 40% at 55% 0%,#1c3e363b,transparent 75%),var(--bg);color:var(--text);min-height:100vh}
@@ -159,12 +161,30 @@ html{scroll-padding-top:18px}
 .report-feature-actions .btn.primary{box-shadow:0 10px 24px #9df5c121}
 @media(prefers-reduced-motion:reduce){.nav a,.table-scroll tbody tr{transition:none!important}}
 
+
+/* SACHI / PUNPUN · imagem fornecida pelo dono do site */
+.sachi-brand-icon{overflow:hidden;padding:0;flex:none;background:#f1f0e9;border:1px solid #9ac9ab;border-radius:13px;box-shadow:0 0 0 4px #a6f1c509,0 8px 18px #0004;transition:border-color .3s ease,box-shadow .3s ease,transform .3s ease}
+.sachi-brand-icon::before{display:none}
+.sachi-brand-icon img{display:block;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.09);image-rendering:auto}
+.brand:hover .sachi-brand-icon{transform:rotate(-5deg) scale(1.04);border-color:#bcf7d1;box-shadow:0 0 0 5px #b6fbd416,0 9px 28px #0006}
+.welcome::after{display:none}
+.welcome>div:first-child{flex:1;min-width:0;position:relative;z-index:1}
+.sachi-feature{margin:0;position:relative;flex:0 0 154px;align-self:center;display:flex;align-items:center;flex-direction:column;gap:10px;z-index:1}
+.sachi-feature-frame{width:146px;height:146px;background:#eeefea;padding:6px;border:1px solid #a7e4bc;border-radius:17px;box-shadow:0 0 0 7px #a1eabb0f,0 20px 45px #030b0a7b;transform:rotate(4deg);transition:transform .65s cubic-bezier(.2,.8,.2,1),box-shadow .4s ease}
+.sachi-feature-frame img{width:100%;height:100%;display:block;object-fit:cover;border-radius:11px;filter:grayscale(1) contrast(1.05)}
+.sachi-feature:hover .sachi-feature-frame{transform:rotate(0deg) translateY(-5px) scale(1.045);box-shadow:0 0 0 8px #a1eabb16,0 24px 45px #030b0a9c}
+.sachi-feature figcaption{font:700 9px/1.5 ui-monospace,Consolas,monospace;letter-spacing:.14em;color:#d4eddf;text-align:center;white-space:nowrap}
+.sachi-feature figcaption span{color:#b3f4cf;margin-left:5px}
+@media(max-width:680px){.welcome{align-items:center;gap:13px}.sachi-feature{flex-basis:94px;gap:7px}.sachi-feature-frame{width:88px;height:88px;padding:4px;border-radius:12px}.sachi-feature-frame img{border-radius:8px}.sachi-feature figcaption{font-size:7px;letter-spacing:.06em}.welcome h2{font-size:clamp(26px,7vw,37px)}}
+@media(max-width:390px){.welcome{flex-direction:column-reverse;align-items:flex-start}.sachi-feature{align-self:flex-start;flex-direction:row;flex-basis:auto}.sachi-feature-frame{width:68px;height:68px}.welcome h2{margin-top:9px}}
+@media(prefers-reduced-motion:reduce){.sachi-brand-icon,.sachi-feature-frame{transition:none!important}}
+
 </style>
 </head>
 <body>
 <div class="app">
 <aside class="sidebar">
-  <a href="#inicio" class="brand"><span class="brand-icon" aria-hidden="true">◈</span><span>fluxo<em>.</em></span></a>
+  <a href="#inicio" class="brand" aria-label="Fluxo, voltar ao início"><span class="brand-icon sachi-brand-icon" aria-hidden="true"><img src="./sachi-avatar.jpg" alt="" width="42" height="42"></span><span>fluxo<em>.</em></span></a>
   <nav class="nav" aria-label="Navegação"><a href="#inicio" class="active"><span>◫</span>Visão geral</a><a href="#limite"><span>◎</span>Meu limite</a><a href="#lancamentos"><span>≡</span>Lançamentos</a><a href="#planejamento"><span>◎</span>Planejamento</a><a href="#relatorios"><span>⇩</span>Relatórios</a></nav>
   <div class="side-bottom"><strong>🔒 Seus dados ficam aqui.</strong><p>Os registros ficam em um banco local no navegador, sem envio a servidores. Faça backups regularmente.</p><span id="dbStatus" data-state="loading" role="status">Conferindo armazenamento...</span></div>
 </aside>
@@ -175,7 +195,10 @@ html{scroll-padding-top:18px}
   </header>
   <section class="welcome" aria-label="Boas-vindas">
     <div><span class="kicker">UM MÊS DE CADA VEZ</span><h2>Seu mês, <span>sem bagunça.</span></h2><p>Adicione o que entra, registre o que sai e acompanhe cada centavo com clareza. Sem planilha impossível de entender.</p></div>
-    <div class="welcome-tag">● FINANÇAS / LOCAL</div>
+    <figure class="sachi-feature" aria-label="Ilustração da Sachi, personagem do mangá Oyasumi Punpun">
+      <div class="sachi-feature-frame"><img src="./sachi-avatar.jpg" alt="Sachi de óculos em preto e branco, arte de mangá escolhida para representar o site" width="138" height="138"></div>
+      <figcaption>SACHI / PUNPUN <span aria-hidden="true">✳</span></figcaption>
+    </figure>
   </section>
   <section class="stats" aria-label="Resumo financeiro do mês">
     <article class="stat green"><div class="stat-name">↗ Entradas</div><div class="stat-value" id="incomeTotal">R$ 0,00</div><div class="stat-foot">Receitas do mês</div></article>
