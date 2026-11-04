@@ -733,7 +733,7 @@ function win1252Bytes(value){
   const result=[];
   for(const ch of String(value)){
     const n=ch.codePointAt(0);
-    if((n>=32&&n<=126)||(n>=160&&n<=255)||n===10||n===13)result.push(n);
+    if((n>=32&&n<=255)||n===10||n===13)result.push(n);
     else if(Object.prototype.hasOwnProperty.call(special,n))result.push(special[n]);
     else result.push(63);
   }
