@@ -135,6 +135,30 @@ html{scroll-padding-top:18px}
 @media(max-width:650px){.report-feature{display:grid;padding:21px}.report-feature-actions{justify-content:stretch}.report-feature-actions .btn{flex:1}.report-dialog-body{padding:16px}.report-paper{padding:17px}.report-paper .r-grid{gap:6px}.report-paper .r-box{padding:9px}.report-paper .r-box strong{font-size:13px}.report-buttons .btn{flex:1}}
 @media(prefers-reduced-motion:reduce){.report-feature,.report-dialog{animation:none!important}}
 
+
+/* FLUXO 2.2 | refinamento visual e estados de armazenamento */
+:root{--surface-edge:#3d5852}
+::selection{background:#a1e8be;color:#0c1b16}
+.sidebar{background:radial-gradient(circle at -30% 20%,#1d433127,transparent 50%),linear-gradient(165deg,#10191b,#0a1217 78%)}
+.nav a{position:relative;transition:background .22s ease,color .22s ease,transform .22s ease}
+.nav a:hover{transform:translateX(3px)}
+.brand-icon{position:relative;isolation:isolate}.brand-icon::before{content:"";position:absolute;inset:-5px;z-index:-1;border-radius:18px;background:linear-gradient(120deg,#63bd8833,transparent);pointer-events:none}
+.topbar h1{font-size:clamp(29px,3.1vw,42px)}.topbar h1 span{filter:drop-shadow(0 0 18px #a6f3c228)}
+.stat,.panel,.planner-config,.goal-card{box-shadow:inset 0 1px 0 #ffffff0b,0 12px 24px #0002}
+.stat:hover,.goal-card:hover{transform:translateY(-4px);box-shadow:0 24px 44px #0005,inset 0 1px 0 #ffffff17}
+.stat:focus-within,.panel:focus-within,.planner-config:focus-within,.goal-card:focus-within{border-color:#7fb49c}
+.panel-head .kicker{color:#b3ebcd}.stat-value{letter-spacing:-.065em}
+.table-scroll tbody tr{transition:background .2s ease}.table-scroll tbody tr:hover{background:#1b302c9e}
+.table-toolbar input:focus,.table-toolbar select:focus{border-color:#8cd6aa}
+#dbStatus{display:block;margin-top:12px;font-size:10px;line-height:1.6;color:#b8dac6}
+#dbStatus[data-state="active"]{color:#bbffcb}
+#dbStatus[data-state="fallback"]{color:#ffdda8}
+#dbStatus[data-state="loading"]{color:#b6c9c3}
+.report-paper{box-shadow:0 12px 30px #0002}
+.report-feature{box-shadow:0 16px 33px #0003}
+.report-feature-actions .btn.primary{box-shadow:0 10px 24px #9df5c121}
+@media(prefers-reduced-motion:reduce){.nav a,.table-scroll tbody tr{transition:none!important}}
+
 </style>
 </head>
 <body>
@@ -142,7 +166,7 @@ html{scroll-padding-top:18px}
 <aside class="sidebar">
   <a href="#inicio" class="brand"><span class="brand-icon" aria-hidden="true">◈</span><span>fluxo<em>.</em></span></a>
   <nav class="nav" aria-label="Navegação"><a href="#inicio" class="active"><span>◫</span>Visão geral</a><a href="#limite"><span>◎</span>Meu limite</a><a href="#lancamentos"><span>≡</span>Lançamentos</a><a href="#planejamento"><span>◎</span>Planejamento</a><a href="#relatorios"><span>⇩</span>Relatórios</a></nav>
-  <div class="side-bottom"><strong>🔒 Seus dados ficam aqui.</strong><p>Este painel funciona no próprio navegador, sem login ou envio dos lançamentos para um servidor. Faça backups regularmente.</p></div>
+  <div class="side-bottom"><strong>🔒 Seus dados ficam aqui.</strong><p>Os registros ficam em um banco local no navegador, sem envio a servidores. Faça backups regularmente.</p><span id="dbStatus" data-state="loading" role="status">Conferindo armazenamento...</span></div>
 </aside>
 <main class="content" id="inicio">
   <header class="topbar">
@@ -241,7 +265,7 @@ html{scroll-padding-top:18px}
       <div class="report-feature-actions"><button class="btn primary" type="button" id="openReport">↓ Baixar relatório PDF</button><button class="btn secondary" type="button" id="copyQuickSummary">▤ Copiar resumo</button></div>
     </div>
   </section>
-  <footer class="footer">FLUXO. · Ferramenta pessoal, sem conta e sem conexão com banco. Os valores só são armazenados neste navegador. Nenhum valor real foi pré-cadastrado.</footer>
+  <footer class="footer">FLUXO. · Seu banco de dados local é o IndexedDB do navegador. Nenhum dado financeiro é publicado ou sincronizado entre aparelhos. Faça backup: o navegador pode apagar seus dados ao limpar o armazenamento.</footer>
 </main>
 </div>
 <dialog id="entryDialog" aria-labelledby="entryDialogTitle">
@@ -322,8 +346,14 @@ function notify(message){
   notify.timer=setTimeout(()=>{el.hidden=true;},3600);
 }
 function save(){
-  try{localStorage.setItem(KEY,JSON.stringify(state));return true;}
-  catch(_){notify("Não consegui salvar os dados neste navegador. Faça um backup.");return false;}
+  try {
+    localStorage.setItem(KEY,JSON.stringify(state));
+    scheduleDbSave("records",state);
+    return true;
+  } catch(_){
+    notify("Não consegui salvar os dados neste navegador. Faça um backup.");
+    return false;
+  }
 }
 function shiftDate(date,offset){
   const p=date.split("-").map(Number);
@@ -587,7 +617,14 @@ let plan=loadPlan();
 function planValue(id){const value=Number($(id).value);return Number.isFinite(value)?Math.max(0,Math.min(10000000,value)):0;}
 function planSetInputs(){for(const id of planFields){$(id).value=plan[id]===0?"":String(plan[id]);}}
 function planSave(){
-  try{localStorage.setItem(PLAN_KEY,JSON.stringify(plan));return true;}catch(_){notify("Não consegui salvar esta previsão no navegador.");return false;}
+  try{
+    localStorage.setItem(PLAN_KEY,JSON.stringify(plan));
+    scheduleDbSave("planning",plan);
+    return true;
+  }catch(_){
+    notify("Não consegui salvar esta previsão no navegador.");
+    return false;
+  }
 }
 function goalDisplay(prefix,target,saved,monthly){
   const left=Math.max(0,target-saved);
@@ -757,10 +794,16 @@ function createReportPdf(data,detailed,planning){
     ops.push(rgb+" rg BT /"+(bold?"F2":"F1")+" "+size+" Tf 1 0 0 1 "+x+" "+yy+" Tm "+pdfLiteral(text)+" Tj ET");
   }
   function drawLine(yPos){ops.push("0.82 0.88 0.84 RG 0.55 w "+margin+" "+yPos+" m "+(width-margin)+" "+yPos+" l S");}
+  function footer(){
+    drawLine(43);
+    drawText("FLUXO. | RESUMO PARTICULAR",margin,26,8,true,"0.27 0.44 0.35");
+    drawText("Documento gerado localmente",width-margin-165,26,8,false,"0.45 0.53 0.48");
+  }
   function startPage(){
-    if(ops.length)pages.push(ops.join("\n")+"\n");
+    if(ops.length){footer();pages.push(ops.join("\n")+"\n");}
     ops=[];pageNumber++;
     ops.push("0.07 0.15 0.14 rg 0 769 "+width+" 73 re f");
+    ops.push("0.48 0.84 0.63 rg 0 769 6 73 re f");
     drawText("FLUXO.  /  RELATORIO FINANCEIRO",margin,802,16,true,"0.77 0.96 0.83");
     drawText(data.monthText.toUpperCase(),margin,781,10,false,"1 1 1");
     drawText("Pagina "+pageNumber,width-margin-66,781,9,false,"1 1 1");
@@ -785,6 +828,22 @@ function createReportPdf(data,detailed,planning){
   nextLine("Saldo registrado: "+formatCents(data.balance),{bold:true,height:20,color:data.balance<0?"0.65 0.20 0.20":"0.13 0.45 0.30"});
   nextLine("Total de lancamentos: "+data.transactions.length,{height:19});
   nextLine("Somente valores registrados, sem somar previsoes.",{fontSize:9,color:"0.39 0.49 0.44",height:16});
+  // Faixa visual de resumo: três indicadores em cartões com bom contraste.
+  y-=5;
+  const boxY=y-65,boxW=164,boxGap=14;
+  const summary=[
+    ["ENTRADAS",formatCents(data.income),"0.15 0.43 0.30"],
+    ["SAIDAS",formatCents(data.expense),"0.60 0.25 0.25"],
+    ["SALDO",formatCents(data.balance),data.balance<0?"0.60 0.25 0.25":"0.15 0.43 0.30"]
+  ];
+  summary.forEach((row,i)=>{
+    const x=margin+i*(boxW+boxGap);
+    ops.push("0.93 0.97 0.95 rg "+x+" "+boxY+" "+boxW+" 64 re f");
+    ops.push("0.78 0.87 0.82 RG 0.7 w "+x+" "+boxY+" "+boxW+" 64 re S");
+    drawText(row[0],x+12,boxY+43,9,true,"0.32 0.48 0.39");
+    drawText(row[1],x+12,boxY+17,15,true,row[2]);
+  });
+  y=boxY-10;
   section("Gastos por categoria");
   if(!data.categories.length)nextLine("Nenhuma despesa registrada neste mes.");
   else data.categories.forEach(([category,value])=>nextLine(category.slice(0,43)+"  |  "+formatCents(value),{height:17,fontSize:10}));
@@ -811,7 +870,7 @@ function createReportPdf(data,detailed,planning){
   y=Math.max(40,y-15);
   if(y<55)startPage();
   nextLine("Gerado no dispositivo pelo Fluxo. Sem integracao bancaria.",{fontSize:9,color:"0.40 0.50 0.46"});
-  pages.push(ops.join("\n")+"\n");
+  footer();pages.push(ops.join("\n")+"\n");
 
   // PDF A4, duas fontes padrao, codificacao Windows-1252 para acentuacao.
   const objects=[null,"","",
@@ -872,7 +931,104 @@ $("copyQuickSummary").addEventListener("click",()=>{
 });
 
 $("openReportTop").addEventListener("click",()=>{$("openReport").click();});
+
+/* BANCO DE DADOS LOCAL / IndexedDB
+   O armazenamento legado fica como cache de compatibilidade para não perder valores existentes.
+   Não é um banco em nuvem e não oferece sincronização entre dispositivos. */
+const DB_NAME="fluxo-local-db";
+const DB_STORE="snapshot";
+let dbConnection=null;
+let dbState="loading";
+const dbWriteQueue=new Map();
+let dbWriteScheduled=false;
+function updateDbStatus(state,message){
+  dbState=state;
+  const el=$("dbStatus");
+  if(el){el.dataset.state=state;el.textContent=message;}
+}
+function openDatabase(){
+  if(dbConnection)return dbConnection;
+  if(!("indexedDB" in window))return Promise.reject(new Error("IndexedDB indisponível"));
+  dbConnection=new Promise((resolve,reject)=>{
+    const request=indexedDB.open(DB_NAME,1);
+    request.onupgradeneeded=()=>{
+      const db=request.result;
+      if(!db.objectStoreNames.contains(DB_STORE))db.createObjectStore(DB_STORE);
+    };
+    request.onsuccess=()=>{
+      const db=request.result;
+      db.onversionchange=()=>{db.close();dbConnection=null;};
+      resolve(db);
+    };
+    request.onerror=()=>{dbConnection=null;reject(request.error||new Error("Banco local não abriu"));};
+    request.onblocked=()=>{dbConnection=null;reject(new Error("Banco bloqueado por outra aba"));};
+  });
+  return dbConnection;
+}
+async function readDb(name){
+  const db=await openDatabase();
+  return new Promise((resolve,reject)=>{
+    const tx=db.transaction(DB_STORE,"readonly");
+    const request=tx.objectStore(DB_STORE).get(name);
+    request.onsuccess=()=>resolve(request.result===undefined?null:request.result);
+    request.onerror=()=>reject(request.error);
+  });
+}
+async function putDb(name,value){
+  const db=await openDatabase();
+  return new Promise((resolve,reject)=>{
+    const tx=db.transaction(DB_STORE,"readwrite");
+    tx.objectStore(DB_STORE).put(value,name);
+    tx.oncomplete=resolve;
+    tx.onerror=()=>reject(tx.error);
+    tx.onabort=()=>reject(tx.error);
+  });
+}
+function scheduleDbSave(name,value){
+  dbWriteQueue.set(name,JSON.parse(JSON.stringify(value)));
+  if(dbWriteScheduled)return;
+  dbWriteScheduled=true;
+  queueMicrotask(async()=>{
+    dbWriteScheduled=false;
+    const pending=[...dbWriteQueue.entries()];
+    dbWriteQueue.clear();
+    try{
+      for(const [key,content] of pending)await putDb(key,content);
+      updateDbStatus("active","● Banco local ativo · salvamento automático");
+    }catch(_){
+      updateDbStatus("fallback","⚠ Banco local indisponível · usando armazenamento básico");
+    }
+  });
+}
+async function initializeDatabase(){
+  try{
+    await openDatabase();
+    const [savedTransactions,savedPlanning]=await Promise.all([readDb("records"),readDb("planning")]);
+    let localRecords=null,localPlanning=null;
+    try{localRecords=localStorage.getItem(KEY);localPlanning=localStorage.getItem(PLAN_KEY);}catch(_){}
+    if(!localRecords&&savedTransactions&&savedTransactions.version===1&&Array.isArray(savedTransactions.transactions)){
+      state={version:1,transactions:savedTransactions.transactions.slice(0,2000).map(sanitizedTransaction).filter(Boolean),
+        goalCents:Number.isSafeInteger(savedTransactions.goalCents)&&savedTransactions.goalCents>=0?savedTransactions.goalCents:0};
+      try{localStorage.setItem(KEY,JSON.stringify(state));}catch(_){}
+    }
+    if(!localPlanning&&savedPlanning&&typeof savedPlanning==="object"){
+      for(const id of planFields){
+        if(typeof savedPlanning[id]==="number"&&Number.isFinite(savedPlanning[id])&&savedPlanning[id]>=0&&savedPlanning[id]<=10000000)plan[id]=savedPlanning[id];
+      }
+      planSetInputs();
+      try{localStorage.setItem(PLAN_KEY,JSON.stringify(plan));}catch(_){}
+    }
+    // Migra dados pré-existentes sem apagar o cache antigo.
+    scheduleDbSave("records",state);
+    scheduleDbSave("planning",plan);
+    render();
+  }catch(_){
+    updateDbStatus("fallback","⚠ Banco local indisponível · usando armazenamento básico");
+  }
+}
+
 render();
+initializeDatabase();
 })();
 </script>
 </body>
