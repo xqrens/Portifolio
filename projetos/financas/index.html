@@ -102,19 +102,52 @@ html{scroll-padding-top:18px}
 @media(max-width:440px){.planner-fields,.goal-inputs{grid-template-columns:1fr}.planner-config-head{align-items:start}.planner-intro .btn{width:100%}.planner-result{padding:21px}.planner-main-number{font-size:40px}}
 @media(prefers-reduced-motion:reduce){.welcome::before,.stat,.panel,.content{animation:none!important}.bar,.planner-meter > span,.goal-progress > span{transition:none!important}}
 
+
+/* FLUXO / relatório particular para compartilhar sem enviar dados a servidores */
+.reports{scroll-margin-top:20px;margin:31px 0}
+.report-feature{position:relative;overflow:hidden;border:1px solid #486a5d;border-radius:22px;padding:27px;display:flex;justify-content:space-between;align-items:center;gap:22px;background:radial-gradient(ellipse at 96% 5%,#376c535b,transparent 56%),linear-gradient(125deg,#172d26,#111e24)}
+.report-feature::after{content:"⇩";pointer-events:none;position:absolute;right:25%;top:-67px;font:600 210px/1 system-ui;color:#c0ffcc09}
+.report-feature-copy{position:relative;z-index:1;max-width:600px}.report-feature h2{font-size:clamp(23px,3vw,34px);letter-spacing:-.06em;margin:10px 0}
+.report-feature p{color:#b9d0c2;font:400 12px/1.8 system-ui,sans-serif;margin:0}
+.report-feature-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;position:relative;z-index:1}
+.report-feature-actions .btn{white-space:nowrap}
+.report-dialog{width:min(655px,calc(100vw - 24px));max-height:calc(100dvh - 20px)}
+.report-dialog .dialog-head{border-bottom:1px solid #304a43}
+.report-dialog-body{padding:20px 25px 24px}
+.report-checks{display:flex;flex-wrap:wrap;gap:11px;padding:12px 0 17px}
+.report-check{display:inline-flex;align-items:center;gap:9px;min-height:40px;padding:8px 12px;background:#1c2d2c;border:1px solid #426054;border-radius:11px;color:#d6ebdf;font-size:11px;cursor:pointer}
+.report-check input{width:16px;height:16px;accent-color:#a2eabe}
+.report-paper{background:#f7faf8;border:1px solid #becdc6;border-radius:14px;color:#1a2926;padding:23px;max-height:48vh;overflow:auto;box-shadow:0 14px 38px #0002}
+.report-paper .r-eyebrow{font:700 10px ui-monospace,Consolas,monospace;letter-spacing:.12em;color:#4c7c60}
+.report-paper h3{font-size:22px;margin:9px 0;letter-spacing:-.05em}.report-paper p{font-size:11px;color:#60756b;line-height:1.65}
+.report-paper .r-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:17px 0}
+.report-paper .r-box{border:1px solid #d3ded8;background:#eaf3ee;border-radius:10px;padding:13px;min-width:0}
+.report-paper .r-box span{font-size:10px;color:#557265;display:block}
+.report-paper .r-box strong{display:block;font-size:clamp(13px,2.5vw,18px);margin-top:7px;overflow-wrap:anywhere}
+.report-paper .r-box.negative strong{color:#b44b4b}
+.report-paper .r-section{font-size:12px;font-weight:750;margin:18px 0 10px}
+.report-paper .r-item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;border-bottom:1px solid #d9e1dc;padding:9px 0;font-size:11px}
+.report-paper .r-item span{overflow-wrap:anywhere}.report-paper .r-item b{white-space:nowrap;font-variant-numeric:tabular-nums}
+.report-paper .r-summary{padding:10px 12px;background:#eaf3ee;border-radius:10px;margin-top:12px;font-size:11px;line-height:1.8;white-space:pre-wrap;color:#405c50}
+.report-privacy{font-size:11px;line-height:1.7;color:#a4beb1;margin:11px 0 18px}
+.report-buttons{display:flex;gap:9px;justify-content:flex-end;flex-wrap:wrap}
+.report-buttons .btn{font-size:11px}.report-what{margin-top:10px;color:#97aead;font-size:11px;line-height:1.6}
+@media(max-width:650px){.report-feature{display:grid;padding:21px}.report-feature-actions{justify-content:stretch}.report-feature-actions .btn{flex:1}.report-dialog-body{padding:16px}.report-paper{padding:17px}.report-paper .r-grid{gap:6px}.report-paper .r-box{padding:9px}.report-paper .r-box strong{font-size:13px}.report-buttons .btn{flex:1}}
+@media(prefers-reduced-motion:reduce){.report-feature,.report-dialog{animation:none!important}}
+
 </style>
 </head>
 <body>
 <div class="app">
 <aside class="sidebar">
   <a href="#inicio" class="brand"><span class="brand-icon" aria-hidden="true">◈</span><span>fluxo<em>.</em></span></a>
-  <nav class="nav" aria-label="Navegação"><a href="#inicio" class="active"><span>◫</span>Visão geral</a><a href="#limite"><span>◎</span>Meu limite</a><a href="#lancamentos"><span>≡</span>Lançamentos</a><a href="#planejamento"><span>◎</span>Planejamento</a></nav>
+  <nav class="nav" aria-label="Navegação"><a href="#inicio" class="active"><span>◫</span>Visão geral</a><a href="#limite"><span>◎</span>Meu limite</a><a href="#lancamentos"><span>≡</span>Lançamentos</a><a href="#planejamento"><span>◎</span>Planejamento</a><a href="#relatorios"><span>⇩</span>Relatórios</a></nav>
   <div class="side-bottom"><strong>🔒 Seus dados ficam aqui.</strong><p>Este painel funciona no próprio navegador, sem login ou envio dos lançamentos para um servidor. Faça backups regularmente.</p></div>
 </aside>
 <main class="content" id="inicio">
   <header class="topbar">
     <div><span class="kicker">CONTROLE FINANCEIRO PESSOAL</span><h1>Meu dinheiro<span style="color:var(--mint)">.</span></h1></div>
-    <div class="tools"><label class="month-select" for="monthFilter">◷ <input id="monthFilter" type="month" aria-label="Mês selecionado"></label><button class="btn primary" id="newEntry" type="button">＋ Novo lançamento</button></div>
+    <div class="tools"><label class="month-select" for="monthFilter">◷ <input id="monthFilter" type="month" aria-label="Mês selecionado"></label><button class="btn secondary" id="openReportTop" type="button">⇩ Relatório PDF</button><button class="btn primary" id="newEntry" type="button">＋ Novo lançamento</button></div>
   </header>
   <section class="welcome" aria-label="Boas-vindas">
     <div><span class="kicker">UM MÊS DE CADA VEZ</span><h2>Seu mês, <span>sem bagunça.</span></h2><p>Adicione o que entra, registre o que sai e acompanhe cada centavo com clareza. Sem planilha impossível de entender.</p></div>
@@ -201,6 +234,13 @@ html{scroll-padding-top:18px}
       <article class="panel"><span class="kicker">SEUS DADOS</span><h3>Backup e segurança</h3><p class="panel-subtitle">Os registros ficam salvos apenas neste navegador. Para trocar de celular ou PC, exporte um arquivo e importe no outro dispositivo.</p><div class="backup-actions"><button class="btn secondary" id="downloadBackup" type="button">↓ Salvar backup</button><button class="btn secondary" id="importBackup" type="button">↑ Restaurar backup</button></div><input id="backupFile" type="file" accept="application/json,.json" hidden><p class="tip"><strong>Importante:</strong> limpar os dados do navegador pode apagar os lançamentos. Não compartilhe o arquivo de backup com desconhecidos.</p></article>
     </div>
   </section>
+
+  <section class="reports" id="relatorios" aria-labelledby="reportSectionTitle">
+    <div class="report-feature">
+      <div class="report-feature-copy"><span class="kicker">COMPARTILHAR COM SEGURANÇA</span><h2 id="reportSectionTitle">Seu dinheiro, em um relatório.</h2><p>Baixe o resumo do mês em PDF para mostrar à sua mãe ou a quem você escolher. Você decide se o arquivo inclui cada compra ou apenas os totais. Tudo é gerado no seu navegador.</p><p class="report-what">Relatórios mostram valores registrados; previsões de salário e metas só entram se você marcar a opção.</p></div>
+      <div class="report-feature-actions"><button class="btn primary" type="button" id="openReport">↓ Baixar relatório PDF</button><button class="btn secondary" type="button" id="copyQuickSummary">▤ Copiar resumo</button></div>
+    </div>
+  </section>
   <footer class="footer">FLUXO. · Ferramenta pessoal, sem conta e sem conexão com banco. Os valores só são armazenados neste navegador. Nenhum valor real foi pré-cadastrado.</footer>
 </main>
 </div>
@@ -218,6 +258,19 @@ html{scroll-padding-top:18px}
     <p class="dialog-help" id="installmentsHint">Em despesas parceladas, informe o valor total. Cada parcela aparecerá no mês correspondente.</p>
     <div class="dialog-actions"><button class="btn secondary" id="cancelEntry" type="button">Cancelar</button><button class="btn primary" type="submit" id="saveEntry">Salvar lançamento</button></div>
   </form>
+</dialog>
+
+<dialog id="reportDialog" class="report-dialog" aria-labelledby="reportDialogTitle">
+  <div class="dialog-head"><div><span class="kicker">RELATÓRIO DO MÊS</span><h2 id="reportDialogTitle">Pronto para compartilhar.</h2></div><button type="button" class="dialog-close" id="closeReport" aria-label="Fechar relatório">×</button></div>
+  <div class="report-dialog-body">
+    <div class="report-checks">
+      <label class="report-check"><input type="checkbox" id="reportDetailed"> Incluir detalhes de cada lançamento</label>
+      <label class="report-check"><input type="checkbox" id="reportPlanning"> Incluir planejamento e metas</label>
+    </div>
+    <div class="report-paper" id="reportPreview" aria-label="Prévia do relatório mensal"></div>
+    <p class="report-privacy">🔒 Este PDF é criado no seu dispositivo. Não enviamos valores para um servidor. Confira o conteúdo antes de compartilhar o arquivo.</p>
+    <div class="report-buttons"><button class="btn secondary" type="button" id="copyReport">▤ Copiar texto</button><button class="btn secondary" type="button" id="cancelReport">Cancelar</button><button class="btn primary" type="button" id="downloadReportPdf">↓ Baixar PDF</button></div>
+  </div>
 </dialog>
 <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 <script>
@@ -580,6 +633,245 @@ $("plannerExample").addEventListener("click",()=>{
   notify("Exemplo preenchido! Edite os valores para a sua realidade.");
 });
 
+
+/* RELATÓRIOS / dados locais / PDF independente de serviços externos */
+function reportData(){
+  const period=selectedMonth();
+  const [year,month]=period.split("-").map(Number);
+  const monthText=new Intl.DateTimeFormat("pt-BR",{month:"long",year:"numeric"}).format(new Date(year,month-1,1));
+  const transactions=currentTransactions().slice().sort((a,b)=>a.date.localeCompare(b.date)||a.id.localeCompare(b.id));
+  const income=sum(transactions,"income"),expense=sum(transactions,"expense");
+  const categories=new Map();
+  transactions.filter(t=>t.type==="expense").forEach(t=>categories.set(t.category,(categories.get(t.category)||0)+t.cents));
+  return {period,monthText,transactions,income,expense,balance:income-expense,categories:[...categories].sort((a,b)=>b[1]-a[1])};
+}
+function reportPlanningLines(data){
+  const planned=Math.round((plan.planSalary+plan.planExtras)*100);
+  const income=Math.max(data.income,planned);
+  const bills=Math.round(plan.planPending*100);
+  const reserved=Math.round((plan.planBuffer+plan.planScreenMonthly+plan.planIphoneMonthly)*100);
+  const remaining=income-data.expense-bills-reserved;
+  return [
+    ["Entradas previstas ou registradas",formatCents(income)],
+    ["Contas ainda pendentes (previsão)",formatCents(bills)],
+    ["Reserva e metas (previsão)",formatCents(reserved)],
+    ["Limite estimado para novos gastos",formatCents(Math.max(0,remaining))]
+  ];
+}
+function formatReportText(data,detailed,planning){
+  const out=[
+    "FLUXO | RESUMO FINANCEIRO",
+    "Mês: "+data.monthText,
+    "",
+    "Entradas registradas: "+formatCents(data.income),
+    "Saídas registradas: "+formatCents(data.expense),
+    "Saldo dos lançamentos: "+formatCents(data.balance),
+    "Total de lançamentos: "+data.transactions.length,
+    "",
+    "GASTOS POR CATEGORIA"
+  ];
+  if(!data.categories.length)out.push("Nenhuma despesa registrada.");
+  else data.categories.forEach(([category,value])=>out.push(category+": "+formatCents(value)));
+  if(detailed){
+    out.push("","LANÇAMENTOS");
+    if(!data.transactions.length)out.push("Nenhum lançamento registrado.");
+    data.transactions.forEach(t=>out.push(t.date.split("-").reverse().join("/")+" | "+(t.type==="income"?"Entrada":"Saída")+" | "+t.description+" | "+t.category+" | "+(t.type==="income"?"+":"-")+formatCents(t.cents)+(t.part?" | Parcela "+t.part:"")));
+  }
+  if(planning){
+    out.push("","PLANEJAMENTO E METAS (VALORES PREVISTOS)");
+    reportPlanningLines(data).forEach(([key,value])=>out.push(key+": "+value));
+    out.push("Estas previsões não representam dinheiro já recebido.");
+  }
+  out.push("","Relatório gerado localmente pelo Fluxo. Sem integração bancária.");
+  return out.join("\n");
+}
+function reportBox(parent,label,value,negative){
+  const box=document.createElement("div");box.className="r-box"+(negative?" negative":"");
+  const title=document.createElement("span");title.textContent=label;
+  const strong=document.createElement("strong");strong.textContent=value;
+  box.append(title,strong);parent.append(box);
+}
+function reportItem(parent,label,value){
+  const line=document.createElement("div");line.className="r-item";
+  const t=document.createElement("span");t.textContent=label;
+  const v=document.createElement("b");v.textContent=value;
+  line.append(t,v);parent.append(line);
+}
+function reportHeading(parent,label){
+  const h=document.createElement("h4");h.className="r-section";h.textContent=label;parent.append(h);
+}
+function renderReport(){
+  const data=reportData(),detailed=$("reportDetailed").checked,planning=$("reportPlanning").checked;
+  const view=$("reportPreview");view.replaceChildren();
+  const label=document.createElement("div");label.className="r-eyebrow";label.textContent="FLUXO / CONTROLE FINANCEIRO";
+  const title=document.createElement("h3");title.textContent="Resumo de "+data.monthText;
+  const subtitle=document.createElement("p");subtitle.textContent=data.transactions.length+" lançamento(s) registrado(s). Apenas valores lançados no mês, sem somar previsões.";
+  const grid=document.createElement("div");grid.className="r-grid";
+  reportBox(grid,"Entradas",formatCents(data.income),false);
+  reportBox(grid,"Saídas",formatCents(data.expense),true);
+  reportBox(grid,"Saldo",formatCents(data.balance),data.balance<0);
+  view.append(label,title,subtitle,grid);
+  reportHeading(view,"Gastos por categoria");
+  if(!data.categories.length){const p=document.createElement("p");p.textContent="Nenhum gasto registrado neste mês.";view.append(p);}
+  else data.categories.slice(0,6).forEach(([category,value])=>reportItem(view,category,formatCents(value)));
+  if(detailed){
+    reportHeading(view,"Lançamentos");
+    if(!data.transactions.length){const p=document.createElement("p");p.textContent="Nenhum lançamento neste mês.";view.append(p);}
+    else{
+      data.transactions.slice(0,18).forEach(t=>reportItem(view,t.date.split("-").reverse().join("/")+" · "+t.description+(t.part?" ("+t.part+")":""),(t.type==="income"?"+":"−")+formatCents(t.cents)));
+      if(data.transactions.length>18){const p=document.createElement("p");p.textContent="Prévia limitada a 18 registros. O PDF incluirá todos os "+data.transactions.length+" lançamentos.";view.append(p);}
+    }
+  }
+  if(planning){
+    reportHeading(view,"Planejamento (previsões)");
+    reportPlanningLines(data).forEach(([key,value])=>reportItem(view,key,value));
+    const note=document.createElement("p");note.textContent="Valores planejados não são recebimentos comprovados.";view.append(note);
+  }
+}
+function win1252Bytes(value){
+  const special={8364:128,8218:130,402:131,8222:132,8230:133,8224:134,8225:135,710:136,8240:137,352:138,8249:139,338:140,381:142,8216:145,8217:146,8220:147,8221:148,8226:149,8211:150,8212:151,732:152,8482:153,353:154,8250:155,339:156,382:158,376:159};
+  const result=[];
+  for(const ch of String(value)){
+    const n=ch.codePointAt(0);
+    if((n>=32&&n<=126)||(n>=160&&n<=255)||n===10||n===13)result.push(n);
+    else if(Object.prototype.hasOwnProperty.call(special,n))result.push(special[n]);
+    else result.push(63);
+  }
+  return result;
+}
+function pdfLiteral(str){
+  const chars=[];
+  for(const code of win1252Bytes(str)){
+    if(code===40||code===41||code===92)chars.push("\\",String.fromCharCode(code));
+    else if(code===10)chars.push("\\n");
+    else if(code===13)chars.push("\\r");
+    else chars.push(String.fromCharCode(code));
+  }
+  return "("+chars.join("")+")";
+}
+function createReportPdf(data,detailed,planning){
+  const pages=[],width=595,height=842,margin=39;
+  let ops=[],y=0,pageNumber=0;
+  function drawText(text,x,yy,size,bold,color){
+    const rgb=color||"0.10 0.18 0.17";
+    ops.push(rgb+" rg BT /"+(bold?"F2":"F1")+" "+size+" Tf 1 0 0 1 "+x+" "+yy+" Tm "+pdfLiteral(text)+" Tj ET");
+  }
+  function drawLine(yPos){ops.push("0.82 0.88 0.84 RG 0.55 w "+margin+" "+yPos+" m "+(width-margin)+" "+yPos+" l S");}
+  function startPage(){
+    if(ops.length)pages.push(ops.join("\n")+"\n");
+    ops=[];pageNumber++;
+    ops.push("0.07 0.15 0.14 rg 0 769 "+width+" 73 re f");
+    drawText("FLUXO.  /  RELATORIO FINANCEIRO",margin,802,16,true,"0.77 0.96 0.83");
+    drawText(data.monthText.toUpperCase(),margin,781,10,false,"1 1 1");
+    drawText("Pagina "+pageNumber,width-margin-66,781,9,false,"1 1 1");
+    y=742;
+  }
+  function nextLine(text,opts){
+    opts=opts||{};
+    const height=opts.height||19;
+    if(y-height<52)startPage();
+    drawText(String(text).slice(0,opts.maxChars||95),opts.x===undefined?margin:opts.x,y,opts.fontSize||11,!!opts.bold,opts.color);
+    y-=height;
+  }
+  function section(name){
+    if(y<125)startPage();
+    y-=12;drawLine(y+10);
+    nextLine(name.toUpperCase(),{bold:true,fontSize:11,height:23,color:"0.14 0.40 0.28"});
+  }
+  startPage();
+  nextLine("Resumo do mes",{bold:true,fontSize:17,height:26});
+  nextLine("Entradas registradas: "+formatCents(data.income),{bold:true,height:20});
+  nextLine("Saidas registradas: "+formatCents(data.expense),{height:20});
+  nextLine("Saldo registrado: "+formatCents(data.balance),{bold:true,height:20,color:data.balance<0?"0.65 0.20 0.20":"0.13 0.45 0.30"});
+  nextLine("Total de lancamentos: "+data.transactions.length,{height:19});
+  nextLine("Somente valores registrados, sem somar previsoes.",{fontSize:9,color:"0.39 0.49 0.44",height:16});
+  section("Gastos por categoria");
+  if(!data.categories.length)nextLine("Nenhuma despesa registrada neste mes.");
+  else data.categories.forEach(([category,value])=>nextLine(category.slice(0,43)+"  |  "+formatCents(value),{height:17,fontSize:10}));
+  if(detailed){
+    section("Lancamentos do mes");
+    if(!data.transactions.length)nextLine("Nenhum lancamento registrado.");
+    else {
+      data.transactions.forEach(t=>{
+        if(y<78)startPage();
+        const sign=t.type==="income"?"+":"-";
+        drawText(t.date.split("-").reverse().join("/"),margin,y,9,false);
+        drawText(t.description.slice(0,30)+(t.part?" "+t.part:""),110,y,9,false);
+        drawText(t.category.slice(0,22),329,y,9,false,"0.40 0.49 0.45");
+        drawText(sign+formatCents(t.cents),475,y,9,true,t.type==="income"?"0.14 0.44 0.25":"0.66 0.24 0.20");
+        y-=18;
+      });
+    }
+  }
+  if(planning){
+    section("Planejamento - valores previstos");
+    reportPlanningLines(data).forEach(([key,value])=>nextLine(key+": "+value,{height:18,fontSize:10}));
+    nextLine("ATENCAO: previsoes nao comprovam dinheiro recebido.",{fontSize:9,height:20,color:"0.62 0.30 0.15"});
+  }
+  y=Math.max(40,y-15);
+  if(y<55)startPage();
+  nextLine("Gerado no dispositivo pelo Fluxo. Sem integracao bancaria.",{fontSize:9,color:"0.40 0.50 0.46"});
+  pages.push(ops.join("\n")+"\n");
+
+  // PDF A4, duas fontes padrao, codificacao Windows-1252 para acentuacao.
+  const objects=[null,"","",
+    "<</Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding>>",
+    "<</Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding>>"];
+  const pageReferences=[];
+  pages.forEach(content=>{
+    const pageId=objects.length,streamId=pageId+1;
+    objects.push("<</Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources <</Font <</F1 3 0 R /F2 4 0 R>>>> /Contents "+streamId+" 0 R>>");
+    objects.push("<</Length "+win1252Bytes(content).length+">>\nstream\n"+content+"endstream");
+    pageReferences.push(pageId+" 0 R");
+  });
+  objects[1]="<</Type /Catalog /Pages 2 0 R>>";
+  objects[2]="<</Type /Pages /Kids ["+pageReferences.join(" ")+"] /Count "+pageReferences.length+">>";
+  const bytes=[],offsets=[0];
+  const append=value=>{for(const code of win1252Bytes(value))bytes.push(code);};
+  append("%PDF-1.4\n");
+  for(let i=1;i<objects.length;i++){
+    offsets.push(bytes.length);
+    append(i+" 0 obj\n"+objects[i]+"\nendobj\n");
+  }
+  const xref=bytes.length;
+  append("xref\n0 "+objects.length+"\n0000000000 65535 f \n");
+  for(let i=1;i<objects.length;i++)append(String(offsets[i]).padStart(10,"0")+" 00000 n \n");
+  append("trailer\n<</Size "+objects.length+" /Root 1 0 R>>\nstartxref\n"+xref+"\n%%EOF");
+  return new Blob([new Uint8Array(bytes)],{type:"application/pdf"});
+}
+function downloadReport(){
+  const data=reportData();
+  const pdf=createReportPdf(data,$("reportDetailed").checked,$("reportPlanning").checked);
+  const url=URL.createObjectURL(pdf);
+  const a=document.createElement("a");
+  a.href=url;a.download="fluxo-relatorio-"+data.period+".pdf";
+  document.body.append(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),60000);
+  notify("PDF baixado! Confira antes de mandar para sua mãe.");
+}
+function copyReportText(){
+  const text=formatReportText(reportData(),$("reportDetailed").checked,$("reportPlanning").checked);
+  if(!navigator.clipboard?.writeText){notify("Cópia indisponível. Use o download do PDF.");return;}
+  navigator.clipboard.writeText(text).then(()=>notify("Resumo copiado. Você pode colar no WhatsApp."),()=>notify("Não foi possível copiar. Baixe o PDF."));
+}
+$("openReport").addEventListener("click",()=>{
+  renderReport();
+  $("reportDialog").showModal();
+});
+$("reportDetailed").addEventListener("change",renderReport);
+$("reportPlanning").addEventListener("change",renderReport);
+$("closeReport").addEventListener("click",()=>$("reportDialog").close());
+$("cancelReport").addEventListener("click",()=>$("reportDialog").close());
+$("downloadReportPdf").addEventListener("click",downloadReport);
+$("copyReport").addEventListener("click",copyReportText);
+$("copyQuickSummary").addEventListener("click",()=>{
+  const data=reportData();
+  const text=formatReportText(data,false,false);
+  if(!navigator.clipboard?.writeText){notify("Cópia indisponível. Use o PDF.");return;}
+  navigator.clipboard.writeText(text).then(()=>notify("Resumo copiado para enviar no WhatsApp."),()=>notify("Falha ao copiar. Use o PDF."));
+});
+
+$("openReportTop").addEventListener("click",()=>{$("openReport").click();});
 render();
 })();
 </script>
