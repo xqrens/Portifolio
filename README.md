@@ -68,6 +68,25 @@ As disciplinas que estudei no técnico foram:
 
 Os exercícios publicados neste repositório são evidências de prática e aprendizado. **Desenvolvimento Web não é o nome de um curso que concluí**, e não apresento esses projetos como experiência profissional na área.
 
+### Atualização Studio · novembro de 2026
+
+Uma camada de visual mais clean foi adicionada em `projetos/portfolio-evolve.css` e `projetos/portfolio-evolve.js`, sem reescrever os exercícios e sem remover as seções anteriores.
+
+**10 novidades e interações:**
+
+1. Busca rápida de seções e dos 24 projetos com **Ctrl+K** (ou `/`).
+2. Projetos favoritos salvos **somente no navegador**.
+3. Cópia direta do link de cada projeto.
+4. Botão **Me surpreenda** para descobrir um projeto.
+5. Três acentos de cor: violeta, menta e azul-gelo.
+6. **Modo foco** que suaviza a decoração e as animações.
+7. Compartilhamento do portfólio pelo menu nativo ou cópia de URL.
+8. Seção **Bastidores** com o processo de criação em três etapas.
+9. Diário de atualizações com marcos reais do site.
+10. FAQ com respostas sobre formação, projetos e contato.
+
+Além disso, há um botão de voltar ao topo, melhorias responsivas, navegação por teclado, feedback de ações e respeito à preferência de movimento reduzido. A seção Mente em Flor, as playlists, as prévias e o easter egg existente permanecem intactos.
+
 ### Novidades do XQRENS Portfolio 2.0
 
 - **24 prévias interativas:** cada projeto pode ser aberto num painel ao vivo; o iframe só é carregado ao clicar.
