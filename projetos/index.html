@@ -30,6 +30,15 @@
 <script defer src="./portfolio-plus.js?v=20261027-player-v2"></script>
   <script defer src="./portfolio-2026.js?v=20261103-clean"></script>
   <script>try { const motion=localStorage.getItem("xqrens-motion"); if(motion==="on"||motion==="off")document.documentElement.dataset.motion=motion; } catch(e) {}</script>
+  <link rel="stylesheet" href="./portfolio-evolve.css?v=20261109-studio">
+  <script defer src="./portfolio-evolve.js?v=20261109-studio"></script>
+  <script>
+    try {
+      const theme = localStorage.getItem("xq-studio-tone");
+      if (["violet","mint","ice"].includes(theme)) document.documentElement.dataset.xqTheme = theme;
+      if (localStorage.getItem("xq-focus") === "on") document.documentElement.dataset.xqFocus = "on";
+    } catch (error) { /* Preferências opcionais */ }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#sobre">Ir para o conteúdo</a>
@@ -49,9 +58,11 @@
         <a href="#mente">Mente em Flor</a>
 
 
+        <a href="#bastidores">Bastidores</a>
         <a href="#contato">Contato</a>
       </nav>
       <div class="header-right">
+        <button type="button" class="xq-search-launch" id="xqCommandLaunch" aria-haspopup="dialog" aria-controls="xqCommand" title="Pesquisar seções e projetos (Ctrl+K)">⌕ Buscar <kbd>Ctrl K</kbd></button>
         <a class="header-github" href="https://github.com/xqrens/Portifolio" target="_blank" rel="noopener noreferrer" aria-label="Ver o código do portfólio no GitHub">
           <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .9a11.1 11.1 0 0 0-3.51 21.64c.55.1.76-.24.76-.53v-2.05c-3.08.67-3.73-1.3-3.73-1.3-.5-1.26-1.23-1.6-1.23-1.6-1.01-.7.08-.69.08-.69 1.12.08 1.71 1.15 1.71 1.15 1 .1.95 1.63 3.17 1.16.1-.72.39-1.2.7-1.47-2.46-.28-5.05-1.23-5.05-5.49 0-1.21.44-2.21 1.15-2.99-.11-.28-.5-1.41.11-2.94 0 0 .94-.3 3.05 1.14A10.6 10.6 0 0 1 12 6.28c.94 0 1.87.12 2.74.37 2.12-1.44 3.04-1.14 3.04-1.14.61 1.53.22 2.66.11 2.94.72.78 1.15 1.78 1.15 2.99 0 4.27-2.59 5.2-5.06 5.48.4.34.75 1.02.75 2.06v3.03c0 .3.2.64.77.53A11.1 11.1 0 0 0 12 .9Z"/></svg>
           <span class="github-text">GitHub ↗</span>
@@ -75,6 +86,11 @@
           <div class="hero-actions">
             <a class="btn primary" href="#projetos">Explorar meus projetos <span aria-hidden="true">↗</span></a>
             <a class="btn ghost" href="#sobre">Conhecer o Luiz <span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="xq-hero-caption">
+            <span>24 projetos reais para explorar</span>
+            <button class="xq-mini-action" id="xqShare" type="button">Compartilhar portfólio ↗</button>
+            <button class="xq-mini-action" type="button" id="xqQuickSearch">Buscar rapidamente /</button>
           </div>
 
 
@@ -170,6 +186,24 @@
           <button class="filter-btn" type="button" data-filter="css" aria-pressed="false">CSS</button>
           <button class="filter-btn" type="button" data-filter="pagina" aria-pressed="false">Páginas</button>
 <button class="filter-btn" type="button" data-filter="js" aria-pressed="false">JavaScript ✳</button>
+        </div>
+        <div class="xq-project-tools" aria-label="Ferramentas da galeria de projetos">
+          <div class="xq-tool-actions">
+            <button class="xq-tool-button" type="button" id="xqSurprise">✳ Me surpreenda</button>
+            <button class="xq-tool-button" type="button" id="xqSavedToggle" aria-controls="xqSavedPanel" aria-expanded="false">♡ Favoritos <span id="xqSavedCount">0</span></button>
+            <button class="xq-tool-button" type="button" id="xqFocus" aria-pressed="false">◎ Modo foco</button>
+          </div>
+          <div class="xq-theme-controls" role="group" aria-label="Escolher cor de destaque">
+            <span class="xq-tool-caption">Cor do site</span>
+            <button class="xq-tone-button" style="--tone:#c1bbff" type="button" data-xq-tone="violet" data-xq-label="Violeta" aria-label="Tema violeta" aria-pressed="true"></button>
+            <button class="xq-tone-button" style="--tone:#99e5cc" type="button" data-xq-tone="mint" data-xq-label="Menta" aria-label="Tema menta" aria-pressed="false"></button>
+            <button class="xq-tone-button" style="--tone:#a7cfff" type="button" data-xq-tone="ice" data-xq-label="Azul-gelo" aria-label="Tema azul-gelo" aria-pressed="false"></button>
+          </div>
+        </div>
+        <div class="xq-saved-panel" id="xqSavedPanel" hidden>
+          <h3>Seu cantinho de favoritos ♡</h3>
+          <p>Os projetos salvos ficam neste navegador, sem cadastro e sem enviar dados a ninguém.</p>
+          <ul id="xqSavedList"></ul>
         </div>
         <div class="project-grid" id="projectGrid" aria-label="Lista dos meus 24 projetos">
           <article class="project-card" data-category="html" data-title="Projeto Erro">
@@ -403,10 +437,43 @@
       </div>
     </section>
 
+
+    <section class="section xq-workflow" id="bastidores" aria-labelledby="xqBastidoresTitle">
+      <div class="container">
+        <div class="xq-workflow-header">
+          <span class="eyebrow">05 <span class="line"></span> IDEIAS EM MOVIMENTO</span>
+          <h2 id="xqBastidoresTitle">Por trás de <span class="accent">cada tela.</span></h2>
+          <p>Um pouco do meu jeito de aprender, das melhorias feitas neste portfólio e de respostas para quem está conhecendo meus projetos.</p>
+        </div>
+        <div class="xq-process-grid" aria-label="Três etapas de criação">
+          <article class="xq-process-card"><span class="num">01</span><h3>Entender</h3><p>Começo identificando o objetivo da página e o que precisa ficar claro para quem vai usar.</p></article>
+          <article class="xq-process-card"><span class="num">02</span><h3>Experimentar</h3><p>Transformo ideias em HTML, CSS e JavaScript e testo o comportamento das interações.</p></article>
+          <article class="xq-process-card"><span class="num">03</span><h3>Melhorar</h3><p>Reviso organização, legibilidade, celular e acessibilidade. O projeto não precisa parar na primeira versão.</p></article>
+        </div>
+        <div class="xq-inside-grid">
+          <div class="xq-inside-panel">
+            <h3>Diário de evolução.</h3>
+            <ol class="xq-changelog">
+              <li><strong>Novembro de 2026 · Studio</strong>Refinamento visual, comandos de navegação, favoritos, compartilhamento e personalização do portfólio.</li>
+              <li><strong>Novembro de 2026 · Projetos em foco</strong>Prévias interativas, estudos de caso e apresentação mais clara da formação e da trajetória.</li>
+              <li><strong>Outubro de 2026 · Novos laboratórios</strong>Projetos pessoais de JavaScript com exercícios práticos e experiências interativas.</li>
+            </ol>
+          </div>
+          <div class="xq-inside-panel xq-faq">
+            <h3>Perguntas rápidas.</h3>
+            <details><summary>Você trabalha como desenvolvedor?</summary><p>Não. Atualmente sou jovem aprendiz nos Correios e curso Aprendizagem Industrial de Assistente Administrativo. Programação é uma área que estudei e continuo praticando em projetos pessoais.</p></details>
+            <details><summary>Posso testar os projetos?</summary><p>Sim! Cada cartão tem um link para abrir o trabalho e uma prévia interativa. Alguns exercícios são simples porque foram feitos para estudar fundamentos.</p></details>
+            <details><summary>Onde vejo o código?</summary><p>O repositório é público no <a href="https://github.com/xqrens/Portifolio" target="_blank" rel="noopener noreferrer">GitHub</a>. Lá estão os arquivos e o histórico de mudanças.</p></details>
+            <details><summary>Como mandar uma sugestão?</summary><p>Você pode <a href="https://github.com/xqrens/Portifolio/issues/new/choose" target="_blank" rel="noopener noreferrer">abrir uma sugestão no GitHub</a> ou acessar os canais listados na seção de contato.</p></details>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section contact-section" id="contato" aria-labelledby="contactTitle">
       <div class="container contact-panel">
         <div class="contact-copy">
-          <span class="eyebrow">05 <span class="line"></span> ENTRE EM CONTATO</span>
+          <span class="eyebrow">06 <span class="line"></span> ENTRE EM CONTATO</span>
           <h2 id="contactTitle">Vamos trocar <span class="accent">uma ideia?</span></h2>
           <p>Quer ver meus projetos, mandar um feedback ou acompanhar o que estou estudando? Estes são meus links principais.</p>
           <a class="btn primary" href="https://github.com/xqrens/Portifolio/issues/new/choose" target="_blank" rel="noopener noreferrer">Deixar uma sugestão ↗</a>
@@ -443,5 +510,16 @@
     <div class="xq-preview-frame"><iframe id="xqPreviewIframe" title="Prévia interativa do projeto" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
     <div class="xq-preview-foot"><span>O projeto é carregado somente ao abrir.</span><a id="xqPreviewOpen" href="./" target="_blank" rel="noopener noreferrer">Abrir em outra aba ↗</a></div>
   </dialog>
+  <dialog class="xq-command" id="xqCommand" aria-label="Busca rápida de projetos e seções">
+    <div class="xq-command-head">
+      <span aria-hidden="true">⌕</span>
+      <input id="xqCommandInput" type="search" aria-label="Digite o nome de uma seção ou projeto" aria-controls="xqCommandResults" placeholder="Pesquisar projetos, seções..." autocomplete="off">
+      <button id="xqCommandClose" class="xq-command-close" type="button" aria-label="Fechar busca">ESC</button>
+    </div>
+    <ul class="xq-command-results" id="xqCommandResults" role="listbox" aria-label="Resultados da busca"></ul>
+    <div class="xq-command-foot">↑ ↓ navegar &nbsp; · &nbsp; Enter abrir &nbsp; · &nbsp; Esc fechar</div>
+  </dialog>
+  <button type="button" class="xq-backtop" id="xqBackTop" aria-label="Voltar ao topo da página">↑ Topo</button>
+  <div class="xq-toast" id="xqToast" role="status" aria-live="polite"></div>
 </body>
 </html>
