@@ -138,3 +138,5 @@ html[data-xq-focus=on] *,html[data-xq-focus=on] *::before,html[data-xq-focus=on]
 @media(hover:none){.project-card:hover,.feature:hover,.btn:hover{transform:none!important}}
 @media(prefers-reduced-motion:reduce){html:not([data-motion=on]) .xq-command[open]{animation:none}html:not([data-motion=on]) .xq-toast{transition:none}html:not([data-motion=on]) .xq-backtop{transition:none}}
 html[data-motion=off] .xq-command[open]{animation:none}
+
+.project-card.xq-picked{border-color:var(--accent)!important;box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 38%,transparent),0 24px 48px #0006!important}
