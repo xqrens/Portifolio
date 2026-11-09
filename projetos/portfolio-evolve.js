@@ -231,6 +231,7 @@
       input.focus();
     };
     launch?.addEventListener("click",open);
+    $("#xqQuickSearch")?.addEventListener("click",open);
     document.addEventListener("keydown",event => {
       if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
         event.preventDefault();
