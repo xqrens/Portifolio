@@ -39,6 +39,7 @@
       if (localStorage.getItem("xq-focus") === "on") document.documentElement.dataset.xqFocus = "on";
     } catch (error) { /* Preferências opcionais */ }
   </script>
+  <link rel="stylesheet" href="./apps/portfolio-apps.css?v=20261110">
 </head>
 <body>
   <a class="skip-link" href="#sobre">Ir para o conteúdo</a>
@@ -54,6 +55,7 @@
 
 
 <a href="#projetos">Projetos</a>
+        <a href="#xq-apps">Apps</a>
         <a href="#spotify">Spotify</a>
         <a href="#mente">Mente em Flor</a>
 
@@ -391,6 +393,82 @@
         </div>
         <p id="noProjects" class="empty-results" role="status" hidden>Nenhum projeto encontrado. Tenta outra palavra ou limpa os filtros.</p>
         <div class="project-footer"><span id="projectCount" role="status" aria-live="polite">24 projetos disponíveis</span><button class="btn ghost" type="button" id="showAllProjects" aria-expanded="false">Ver todos os 24 trabalhos ↓</button></div>
+      </div>
+    </section>
+
+    
+    <section class="section xq-apps-section" id="xq-apps" aria-labelledby="xqAppsTitle">
+      <div class="container">
+        <div class="xq-apps-top">
+          <div><span class="eyebrow">03 <span class="line"></span> MINIAPLICATIVOS</span>
+            <h2 class="xq-apps-title" id="xqAppsTitle">Seu universo de <span>apps.</span></h2>
+            <p class="xq-apps-subtitle">Dez ferramentas roxas para testar no navegador. Organização, estudos, finanças, criação e lazer, tudo num só espaço.</p>
+          </div>
+          <a class="xq-apps-hub" href="./apps/">Abrir central de apps ↗</a>
+        </div>
+        <div class="xq-apps-grid">
+          <a class="xq-apps-card" href="./apps/os/" aria-label="Abrir XQRens OS">
+            <span class="xq-apps-icon" aria-hidden="true">✦</span>
+            <span class="xq-apps-type">01 / Organização</span>
+            <h3>XQRens OS</h3><p>Tarefas, prazos e anotações.</p>
+            <span class="xq-apps-open">Testar aplicativo ↗</span>
+          </a>
+          <a class="xq-apps-card" href="./apps/violet-finance/" aria-label="Abrir Violet Finance">
+            <span class="xq-apps-icon" aria-hidden="true">◈</span>
+            <span class="xq-apps-type">02 / Finanças</span>
+            <h3>Violet Finance</h3><p>Registre despesas e receitas.</p>
+            <span class="xq-apps-open">Testar aplicativo ↗</span>
+          </a>
+          <a class="xq-apps-card" href="./apps/senai-hub/" aria-label="Abrir SENAI Hub">
+            <span class="xq-apps-icon" aria-hidden="true">▦</span>
+            <span class="xq-apps-type">03 / Estudos</span>
+            <h3>SENAI Hub</h3><p>Atividades, matérias e notas.</p>
+            <span class="xq-apps-open">Testar aplicativo ↗</span>
+          </a>
+          <a class="xq-apps-card" href="./apps/violet-chat/" aria-label="Abrir Violet Chat">
+            <span class="xq-apps-icon" aria-hidden="true">✉</span>
+            <span class="xq-apps-type">04 / Demo de chat</span>
+            <h3>Violet Chat</h3><p>Mensagens e temas locais.</p>
+            <span class="xq-apps-open">Testar aplicativo ↗</span>
+          </a>
+          <a class="xq-apps-card" href="./apps/quiet-room/" aria-label="Abrir Quiet Room">
+            <span class="xq-apps-icon" aria-hidden="true">☾</span>
+            <span class="xq-apps-type">05 / Diário</span>
+            <h3>Quiet Room</h3><p>Um espaço pessoal para escrever.</p>
+            <span class="xq-apps-open">Testar aplicativo ↗</span>
+          </a>
+          <a class="xq-apps-card" href="./apps/manga-archive/" aria-label="Abrir Manga Archive">
+            <span class="xq-apps-icon" aria-hidden="true">▤</span>
+            <span class="xq-apps-type">06 / Coleção</span>
+            <h3>Manga Archive</h3><p>Mangás, animes e progresso.</p>
+            <span class="xq-apps-open">Testar aplicativo ↗</span>
+          </a>
+          <a class="xq-apps-card" href="./apps/focus-void/" aria-label="Abrir Focus Void">
+            <span class="xq-apps-icon" aria-hidden="true">◷</span>
+            <span class="xq-apps-type">07 / Produtividade</span>
+            <h3>Focus Void</h3><p>Foco, pausas e cronômetro.</p>
+            <span class="xq-apps-open">Testar aplicativo ↗</span>
+          </a>
+          <a class="xq-apps-card" href="./apps/worktrack/" aria-label="Abrir WorkTrack">
+            <span class="xq-apps-icon" aria-hidden="true">▣</span>
+            <span class="xq-apps-type">08 / Trabalho</span>
+            <h3>WorkTrack</h3><p>Registros de aprendizagem.</p>
+            <span class="xq-apps-open">Testar aplicativo ↗</span>
+          </a>
+          <a class="xq-apps-card" href="./apps/xqrens-studio/" aria-label="Abrir XQRens Studio">
+            <span class="xq-apps-icon" aria-hidden="true">◇</span>
+            <span class="xq-apps-type">09 / Projetos</span>
+            <h3>XQRens Studio</h3><p>Rascunhos para o portfólio.</p>
+            <span class="xq-apps-open">Testar aplicativo ↗</span>
+          </a>
+          <a class="xq-apps-card" href="./apps/pocket-tools/" aria-label="Abrir Pocket Tools">
+            <span class="xq-apps-icon" aria-hidden="true">⚙</span>
+            <span class="xq-apps-type">10 / Utilidades</span>
+            <h3>Pocket Tools</h3><p>Calculadora, senhas e mais.</p>
+            <span class="xq-apps-open">Testar aplicativo ↗</span>
+          </a>
+        </div>
+        <p class="xq-apps-note">Versões locais de teste: os dados ficam no navegador, sem sincronização entre dispositivos. O Violet Chat é uma demonstração, não um mensageiro online.</p>
       </div>
     </section>
 
